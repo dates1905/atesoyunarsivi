@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATEŞ Oyun Arşivi</title>
+  <meta name="description" content="ATEŞ Oyun Arşivi - modern oyun launcher ve arşiv sistemi" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="fireCanvas"></canvas>
+  <div class="bg-overlay"></div>
+
+  <header class="navbar">
+    <div class="logo-wrap">
+      <div class="logo-mark">A</div>
+      <div class="logo-text">
+        <strong>ATEŞ OYUN ARŞİVİ</strong>
+        <span>GAME LAUNCHER SYSTEM</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#anasayfa">Ana Sayfa</a>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#surum">Sürüm</a>
+      <a href="#indir">İndir</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="anasayfa" class="hero">
+      <div class="hero-content reveal">
+        <p class="eyebrow">PROFESYONEL OYUN YÖNETİM SİSTEMİ</p>
+        <h1>ATEŞ OYUN ARŞİVİ</h1>
+        <p class="hero-desc">
+          Oyunlarını tek merkezden yönet. Modern arayüz, akıllı başlatma sistemi,
+          görsel düzen, notlar ve güçlü kullanıcı deneyimi.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#indir" class="btn btn-primary">Hemen İndir</a>
+          <a href="#surum" class="btn btn-secondary">Sürüm Detayları</a>
+        </div>
+
+        <div class="hero-badges">
+          <span>Steam / Epic / Rockstar Desteği</span>
+          <span>Modern Launcher Arayüzü</span>
+          <span>Windows Uyumlu</span>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal delay-1">
+        <div class="panel-top">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div class="panel-body">
+          <img src="./assets/launcher.jpg" alt="ATEŞ Oyun Arşivi Önizleme" />
+        </div>
+      </div>
+    </section>
+
+    <section id="ozellikler" class="section">
+      <div class="section-head reveal">
+        <p class="section-mini">ÖZELLİKLER</p>
+        <h2>Neden ATEŞ Oyun Arşivi?</h2>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card reveal">
+          <h3>Akıllı Başlatma</h3>
+          <p>
+            Steam, Epic, Rockstar ve launcher tabanlı başlatma desteği ile
+            oyunlarını tek merkezden çalıştır.
+          </p>
+        </article>
+
+        <article class="feature-card reveal delay-1">
+          <h3>Modern Arayüz</h3>
+          <p>
+            Koyu tema, güçlü tasarım dili ve profesyonel launcher hissi veren
+            şık görünüm.
+          </p>
+        </article>
+
+        <article class="feature-card reveal delay-2">
+          <h3>Kişiselleştirme</h3>
+          <p>
+            Arkaplan, kapak, düzen ve genel görünümü kullanıcı isteğine göre
+            özelleştirebilirsin.
+          </p>
+        </article>
+
+        <article class="feature-card reveal">
+          <h3>Notlar ve Düzen</h3>
+          <p>
+            Oyunlarını sırala, kişisel notlar ekle ve arşiv yapını düzenli şekilde
+            koru.
+          </p>
+        </article>
+
+        <article class="feature-card reveal delay-1">
+          <h3>Kararlı Deneyim</h3>
+          <p>
+            Hızlı açılış, sade kullanım ve odaklı yapı ile günlük kullanım için
+            pratik deneyim sunar.
+          </p>
+        </article>
+
+        <article class="feature-card reveal delay-2">
+          <h3>Geliştirilebilir Sistem</h3>
+          <p>
+            Yeni modüller, güncellemeler ve ek özelliklerle büyüyebilen altyapı.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="surum" class="section version-section">
+      <div class="section-head reveal">
+        <p class="section-mini">SÜRÜM</p>
+        <h2>İndirilebilir Güncel Sürüm</h2>
+      </div>
+
+      <div class="version-box reveal delay-1">
+        <div class="version-left">
+          <p class="version-label">Mevcut sürüm</p>
+          <h3 id="versionText">v1.0.10</h3>
+          <p class="version-note">
+            Kararlı sürüm. Modern launcher deneyimi ve geliştirilmiş kullanıcı
+            arayüzü içerir.
+          </p>
+        </div>
+
+        <div class="version-right">
+          <div class="version-meta">
+            <span>Platform: Windows</span>
+            <span>Durum: Kararlı</span>
+            <span id="buildDate">Build: 11.03.2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="changelog reveal delay-2">
+        <h3>Son Güncellemeler</h3>
+        <ul>
+          <li>Modern ana sayfa düzeni geliştirildi</li>
+          <li>Arkaplan ve görsel uyumu iyileştirildi</li>
+          <li>İndirme linki sistemi sadeleştirildi</li>
+          <li>Genel performans ve görünüm düzenlemeleri yapıldı</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="indir" class="section download-section">
+      <div class="download-box reveal">
+        <p class="section-mini">İNDİR</p>
+        <h2>ATEŞ Oyun Arşivi'ni İndir</h2>
+        <p>
+          Güncel sürümü indirerek modern oyun arşivi deneyimini hemen kullanmaya
+          başlayabilirsin.
+        </p>
+
+        <div class="download-actions">
+          <a
+            id="downloadBtn"
+            class="btn btn-primary large"
+            href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.10/Ates-Oyun-Arsivi-Setup-1.0.10.exe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Kurulumu İndir
+          </a>
+
+          <button id="copyVersionBtn" class="btn btn-secondary" type="button">
+            Sürümü Kopyala
+          </button>
+        </div>
+
+        <div class="download-info">
+          <span>Dosya: Setup</span>
+          <span>Tür: .exe</span>
+          <span id="versionBadge">Sürüm: v1.0.10</span>
+        </div>
+
+        <p id="copyMessage" class="copy-message"></p>
+      </div>
+    </section>
+
+    <section id="iletisim" class="section contact-section">
+      <div class="contact-box reveal">
+        <p class="section-mini">İLETİŞİM</p>
+        <h2>Projeyi Takip Et</h2>
+        <p>
+          Güncellemeler, duyurular ve yeni sürümler için sosyal medya hesaplarını
+          takip edebilirsin.
+        </p>
+
+        <div class="contact-actions">
+          <a
+            class="btn btn-secondary"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
