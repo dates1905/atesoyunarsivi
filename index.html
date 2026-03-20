@@ -4,304 +4,194 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATEŞ Oyun Arşivi</title>
-  <meta name="description" content="ATEŞ Oyun Arşivi - modern oyun launcher ve arşiv sistemi" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="description" content="ATEŞ Oyun Arşivi - modern, sinematik ve premium oyun launcher sitesi" />
+  <link rel="icon" href="./icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./style_yeni.css" />
 </head>
 <body>
-  <canvas id="fireCanvas"></canvas>
-  <div class="bg-overlay"></div>
   <div class="noise"></div>
-  <div class="spotlight spotlight-left"></div>
-  <div class="spotlight spotlight-right"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-  <header class="navbar">
-    <div class="logo-wrap">
-      <div class="logo-mark">A</div>
-      <div class="logo-text">
-        <strong>ATEŞ OYUN ARŞİVİ</strong>
-        <span>GAME LAUNCHER SYSTEM</span>
-      </div>
-    </div>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="ATEŞ Oyun Arşivi ana sayfa">
+        <img src="./icon.ico" alt="ATEŞ Oyun Arşivi logosu" class="brand-logo" />
+        <div class="brand-text">
+          <strong>ATEŞ OYUN ARŞİVİ</strong>
+          <span>Premium Launcher Platformu</span>
+        </div>
+      </a>
 
-    <nav class="nav-links">
-      <a href="#anasayfa">Ana Sayfa</a>
-      <a href="#ozellikler">Özellikler</a>
-      <a href="#galeri">Galeri</a>
-      <a href="#surum">Sürüm</a>
-      <a href="#indir">İndir</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
+      <nav class="main-nav">
+        <a href="#anasayfa">Ana Sayfa</a>
+        <a href="#vizyon">Vizyon</a>
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#indirme">İndir</a>
+      </nav>
 
-    <div class="top-status">
-      <span class="live-dot"></span>
-      <span>Sistem Çevrimiçi</span>
+      <a class="header-cta" href="#indirme">İndir</a>
     </div>
   </header>
 
   <main>
-    <section id="anasayfa" class="hero">
-      <div class="hero-content reveal">
-        <p class="eyebrow">PROFESYONEL OYUN YÖNETİM SİSTEMİ</p>
-        <h1>ATEŞ OYUN ARŞİVİ</h1>
-        <p class="hero-desc">
-          Oyunlarını tek merkezden yönet. Modern arayüz, akıllı başlatma sistemi,
-          kişiselleştirilebilir görünüm, notlar, hızlı erişim ve premium launcher hissi.
+    <section class="hero" id="anasayfa">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">TAMAMEN YENİ TASARIM</p>
+          <h1>Launcher değil, <span>oyun vitrini.</span></h1>
+          <p class="hero-text">
+            ATEŞ Oyun Arşivi; güçlü görsel kimlik, akıllı başlatma sistemi,
+            modern arayüz ve koleksiyon mantığını tek premium deneyimde birleştirir.
+          </p>
+
+          <div class="hero-actions">
+            <a id="downloadBtn" class="btn btn-primary" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe" target="_blank" rel="noopener noreferrer">Kurulumu İndir</a>
+            <a class="btn btn-secondary" href="#ozellikler">Tasarımı Keşfet</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-number">v1.0.14</span>
+              <span class="stat-label">Güncel Sürüm</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">Windows</span>
+              <span class="stat-label">Platform</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" id="systemStatus">Sistem Çevrimiçi</span>
+              <span class="stat-label">Durum</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal delay-1">
+          <div class="stage-shell">
+            <div class="stage-topbar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="stage-screen">
+              <div class="screen-left">
+                <p class="screen-kicker">ARŞİV PANELİ</p>
+                <h3>Yeni nesil arayüz</h3>
+                <ul>
+                  <li>Steam / Epic / Rockstar desteği</li>
+                  <li>Kapak odaklı oyun düzeni</li>
+                  <li>Notlar, temalar ve kişiselleştirme</li>
+                </ul>
+              </div>
+              <div class="screen-right">
+                <div class="mini-grid">
+                  <div class="mini-card accent">GTA V</div>
+                  <div class="mini-card">RDR 2</div>
+                  <div class="mini-card">PUBG</div>
+                  <div class="mini-card accent-soft">Watch Dogs 2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vision" id="vizyon">
+      <div class="container vision-box reveal">
+        <div>
+          <p class="section-tag">VİZYON</p>
+          <h2>Sıradan bir indirme sayfası değil.</h2>
+        </div>
+        <p>
+          Bu yapı; koyu tema, neon sıcaklık, sinematik boşluk kullanımı ve güçlü tipografi ile
+          klasik launcher sitelerinden ayrılır. Amaç yalnızca dosya indirmek değil, markayı hissettirmektir.
         </p>
-
-        <div class="hero-buttons">
-          <a href="#indir" class="btn btn-primary">Hemen İndir</a>
-          <a href="#galeri" class="btn btn-secondary">Görselleri İncele</a>
-        </div>
-
-        <div class="hero-badges">
-          <span>Steam / Epic / Rockstar Desteği</span>
-          <span>Modern Launcher Arayüzü</span>
-          <span>Windows Uyumlu</span>
-          <span>Akıllı Başlatma Sistemi</span>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-card">
-            <strong>v1.0.14</strong>
-            <span>Kararlı Sürüm</span>
-          </div>
-          <div class="stat-card">
-            <strong>Windows</strong>
-            <span>Kurulum Paketi</span>
-          </div>
-          <div class="stat-card">
-            <strong>7/24</strong>
-            <span>Kullanıma Hazır</span>
-          </div>
-        </div>
       </div>
+    </section>
 
-      <div class="hero-visual reveal delay-1">
-        <div class="hero-panel floating-card tilt-card">
-          <div class="panel-top">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-            <span class="panel-title">ATEŞ Launcher Önizleme</span>
-          </div>
-
-          <div class="panel-body">
-            <img src="./launcher.jpg" alt="ATEŞ Oyun Arşivi Önizleme" />
-          </div>
+    <section class="features" id="ozellikler">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-tag">ÖZELLİKLER</p>
+          <h2>Yeni tasarımın ana hatları</h2>
         </div>
 
-        <div class="floating-mini-card card-a">
-          <span class="mini-label">Durum</span>
-          <strong>Kararlı</strong>
-        </div>
+        <div class="feature-layout">
+          <article class="feature-tall reveal">
+            <span class="feature-index">01</span>
+            <h3>Sinematik ana sayfa</h3>
+            <p>Derin katmanlar, yumuşak parlamalar ve dikkatli boşluk kullanımıyla premium ilk izlenim sunar.</p>
+          </article>
 
-        <div class="floating-mini-card card-b">
-          <span class="mini-label">Tema</span>
-          <strong>ATEŞ UI</strong>
+          <article class="feature-card reveal delay-1">
+            <span class="feature-index">02</span>
+            <h3>Vitrin mantığı</h3>
+            <p>Site bir mağaza hissi verir; yalnızca bilgi değil, marka atmosferi de gösterir.</p>
+          </article>
+
+          <article class="feature-card reveal delay-2">
+            <span class="feature-index">03</span>
+            <h3>Güçlü logo kullanımı</h3>
+            <p>Gönderdiğin logo, başlıkta ve tarayıcı ikonunda ana marka öğesi olarak kullanılır.</p>
+          </article>
+
+          <article class="feature-wide reveal">
+            <span class="feature-index">04</span>
+            <h3>Net indirme akışı</h3>
+            <p>
+              İndirme butonu doğrudan güncel kuruluma gider. Sürüm bilgisi, platform ve durum alanı birlikte görünür.
+            </p>
+            <div class="inline-meta">
+              <span>Build: 20.03.2026</span>
+              <span>Setup: .exe</span>
+              <span id="versionBadge">Sürüm: v1.0.14</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="marquee-section reveal">
-      <div class="marquee-track">
-        <span>GTA V</span>
-        <span>RDR2</span>
-        <span>PUBG</span>
-        <span>EA SPORTS FC</span>
-        <span>Watch Dogs 2</span>
-        <span>Epic</span>
-        <span>Steam</span>
-        <span>Rockstar</span>
-        <span>GTA V</span>
-        <span>RDR2</span>
-        <span>PUBG</span>
-        <span>EA SPORTS FC</span>
-        <span>Watch Dogs 2</span>
-        <span>Epic</span>
-        <span>Steam</span>
-        <span>Rockstar</span>
-      </div>
-    </section>
-
-    <section id="ozellikler" class="section">
-      <div class="section-head reveal">
-        <p class="section-mini">ÖZELLİKLER</p>
-        <h2>Neden ATEŞ Oyun Arşivi?</h2>
-      </div>
-
-      <div class="features-grid">
-        <article class="feature-card reveal tilt-card">
-          <div class="feature-icon">🔥</div>
-          <h3>Akıllı Başlatma</h3>
-          <p>Steam, Epic, Rockstar ve launcher tabanlı başlatma desteği ile oyunlarını tek merkezden çalıştır.</p>
-        </article>
-
-        <article class="feature-card reveal delay-1 tilt-card">
-          <div class="feature-icon">🎮</div>
-          <h3>Premium Arayüz</h3>
-          <p>Koyu tema, glow efektleri, güçlü tasarım dili ve profesyonel launcher hissi veren görünüm.</p>
-        </article>
-
-        <article class="feature-card reveal delay-2 tilt-card">
-          <div class="feature-icon">🧩</div>
-          <h3>Kişiselleştirme</h3>
-          <p>Arkaplan, kapak, düzen ve genel görünümü kullanıcı isteğine göre özelleştirebilirsin.</p>
-        </article>
-
-        <article class="feature-card reveal tilt-card">
-          <div class="feature-icon">📝</div>
-          <h3>Notlar ve Düzen</h3>
-          <p>Oyunlarını sırala, kişisel notlar ekle ve arşiv yapını düzenli şekilde koru.</p>
-        </article>
-
-        <article class="feature-card reveal delay-1 tilt-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Kararlı Deneyim</h3>
-          <p>Hızlı açılış, sade kullanım ve odaklı yapı ile günlük kullanım için pratik deneyim sunar.</p>
-        </article>
-
-        <article class="feature-card reveal delay-2 tilt-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Geliştirilebilir Sistem</h3>
-          <p>Yeni modüller, güncellemeler ve ek özelliklerle büyüyebilen altyapı.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="galeri" class="section gallery-section">
-      <div class="section-head reveal">
-        <p class="section-mini">GALERİ</p>
-        <h2>Launcher Hissini Yaşa</h2>
-      </div>
-
-      <div class="gallery-grid">
-        <article class="gallery-card reveal tilt-card large-card">
-          <img src="./launcher.jpg" alt="Launcher ekran görüntüsü" />
-          <div class="gallery-overlay">
-            <p>ATEŞ Launcher</p>
-            <strong>Modern Kontrol Merkezi</strong>
+    <section class="download" id="indirme">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-copy">
+            <p class="section-tag">İNDİRME</p>
+            <h2>ATEŞ Oyun Arşivi hazır.</h2>
+            <p>
+              Güncel sürümü indir, kurulumu başlat ve yeni nesil arşiv tasarımını doğrudan masaüstünde kullan.
+            </p>
           </div>
-        </article>
 
-        <article class="gallery-card reveal delay-1 glow-card">
-          <div class="mock-panel">
-            <span class="mock-tag">Canlı Durum</span>
-            <h3>Kurulum Paketi Hazır</h3>
-            <p>Güncel sürüm, tek tıkla indirme bağlantısı ve sade kurulum akışı.</p>
+          <div class="download-box">
+            <div class="download-top">
+              <img src="./icon.ico" alt="ATEŞ logosu" class="download-logo" />
+              <div>
+                <strong>ATEŞ Oyun Arşivi</strong>
+                <span id="buildDate">Build: 20.03.2026</span>
+              </div>
+            </div>
+
+            <a class="btn btn-primary btn-block" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe" target="_blank" rel="noopener noreferrer">Windows için İndir</a>
+            <button class="btn btn-secondary btn-block" type="button" id="copyVersionBtn">Sürümü Kopyala</button>
+            <p class="copy-message" id="copyMessage"></p>
           </div>
-        </article>
-
-        <article class="gallery-card reveal delay-2 glow-card">
-          <div class="mock-panel">
-            <span class="mock-tag">Arşiv Kontrolü</span>
-            <h3>Oyunlarını Topla</h3>
-            <p>Tek merkez, net görünüm, güçlü tema ve arşiv hissi veren düzen.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="surum" class="section version-section">
-      <div class="section-head reveal">
-        <p class="section-mini">SÜRÜM</p>
-        <h2>İndirilebilir Güncel Sürüm</h2>
-      </div>
-
-      <div class="version-box reveal delay-1">
-        <div class="version-left">
-          <p class="version-label">Mevcut sürüm</p>
-          <h3 id="versionText">v1.0.14</h3>
-          <p class="version-note">Kararlı sürüm. Modern launcher deneyimi ve geliştirilmiş kullanıcı arayüzü içerir.</p>
-        </div>
-
-        <div class="version-right">
-          <div class="version-meta">
-            <span>Platform: Windows</span>
-            <span>Durum: Kararlı</span>
-            <span id="buildDate">Build: 20.03.2026</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="changelog reveal delay-2">
-        <h3>Son Güncellemeler</h3>
-        <ul>
-          <li>Hero alanı yeniden tasarlandı ve daha premium hale getirildi</li>
-          <li>Glow, tilt ve hareket efektleri eklendi</li>
-          <li>İndirme bölümü daha güçlü ve net hale getirildi</li>
-          <li>Galeri, canlı durum ve görsel vitrin alanları eklendi</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section status-section">
-      <div class="status-grid">
-        <div class="status-card reveal glow-card">
-          <span class="status-title">Sistem Durumu</span>
-          <strong>Çevrimiçi</strong>
-          <p>Site aktif, indirme bağlantısı hazır, kurulum paketi erişilebilir.</p>
-        </div>
-
-        <div class="status-card reveal delay-1 glow-card">
-          <span class="status-title">Tema Motoru</span>
-          <strong>Aktif</strong>
-          <p>Ateş teması, cam efektleri, glow yüzeyler ve hover animasyonları çalışıyor.</p>
-        </div>
-
-        <div class="status-card reveal delay-2 glow-card">
-          <span class="status-title">İndirme Tipi</span>
-          <strong>.EXE Setup</strong>
-          <p>Tek tıkla kurulum bağlantısı ile doğrudan güncel sürüme ulaşabilirsin.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="indir" class="section download-section">
-      <div class="download-box reveal glow-card">
-        <p class="section-mini">İNDİR</p>
-        <h2>ATEŞ Oyun Arşivi'ni İndir</h2>
-        <p>Güncel sürümü indirerek modern oyun arşivi deneyimini hemen kullanmaya başlayabilirsin.</p>
-
-        <div class="download-actions">
-          <a
-            id="downloadBtn"
-            class="btn btn-primary large pulse-btn"
-            href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Kurulumu İndir
-          </a>
-
-          <button id="copyVersionBtn" class="btn btn-secondary" type="button">Sürümü Kopyala</button>
-        </div>
-
-        <div class="download-info">
-          <span>Dosya: Ates-Oyun-Arsivi-Setup-1.0.14.exe</span>
-          <span>Tür: .exe</span>
-          <span id="versionBadge">Sürüm: v1.0.14</span>
-        </div>
-
-        <p id="copyMessage" class="copy-message"></p>
-      </div>
-    </section>
-
-    <section id="iletisim" class="section contact-section">
-      <div class="contact-box reveal">
-        <p class="section-mini">İLETİŞİM</p>
-        <h2>Projeyi Takip Et</h2>
-        <p>Güncellemeler, duyurular ve yeni sürümler için sosyal medya hesaplarını takip edebilirsin.</p>
-
-        <div class="contact-actions">
-          <a class="btn btn-secondary" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="./script.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="./icon.ico" alt="ATEŞ logosu" class="footer-logo" />
+        <div>
+          <strong>ATEŞ Oyun Arşivi</strong>
+          <span>Modern oyun launcher deneyimi</span>
+        </div>
+      </div>
+      <p>© 2026 ATEŞ Oyun Arşivi</p>
+    </div>
+  </footer>
+
+  <script src="./script_yeni.js"></script>
 </body>
 </html>

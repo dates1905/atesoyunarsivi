@@ -1,152 +1,197 @@
-// ===== SÜRÜM AYARLARI =====
 const APP_VERSION = "1.0.14";
 const BUILD_DATE = "20.03.2026";
-const DOWNLOAD_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe";
+const DOWNLOAD_URL =
+  "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe";
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ===== ELEMENTLER =====
   const versionText = document.getElementById("versionText");
-  const buildDate = document.getElementById("buildDate");
   const versionBadge = document.getElementById("versionBadge");
+  const buildDate = document.getElementById("buildDate");
   const downloadBtn = document.getElementById("downloadBtn");
-  const copyBtn = document.getElementById("copyVersionBtn");
+  const copyVersionBtn = document.getElementById("copyVersionBtn");
   const copyMessage = document.getElementById("copyMessage");
-  const statusText = document.getElementById("systemStatus");
+  const systemStatus = document.getElementById("systemStatus");
+  const navbar = document.querySelector(".navbar");
+  const revealItems = document.querySelectorAll(".reveal");
+  const statNumbers = document.querySelectorAll("[data-count]");
+  const parallaxItems = document.querySelectorAll("[data-parallax]");
 
-  // ===== SÜRÜM YAZDIR =====
-  if (versionText) versionText.textContent = `v${APP_VERSION}`;
-  if (buildDate) buildDate.textContent = `Build: ${BUILD_DATE}`;
-  if (versionBadge) versionBadge.textContent = `Sürüm: v${APP_VERSION}`;
+  if (versionText) {
+    versionText.textContent = `v${APP_VERSION}`;
+  }
 
-  // ===== DOWNLOAD =====
+  if (versionBadge) {
+    versionBadge.textContent = `Sürüm: v${APP_VERSION}`;
+  }
+
+  if (buildDate) {
+    buildDate.textContent = `Build: ${BUILD_DATE}`;
+  }
+
   if (downloadBtn) {
     downloadBtn.href = DOWNLOAD_URL;
   }
 
-  // ===== COPY =====
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
+  if (copyVersionBtn) {
+    copyVersionBtn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(`v${APP_VERSION}`);
         if (copyMessage) {
-          copyMessage.textContent = "Sürüm kopyalandı!";
-          setTimeout(() => copyMessage.textContent = "", 1500);
+          copyMessage.textContent = `Sürüm kopyalandı: v${APP_VERSION}`;
+          copyMessage.classList.add("show");
+          setTimeout(() => {
+            copyMessage.textContent = "";
+            copyMessage.classList.remove("show");
+          }, 1800);
         }
-      } catch {
+      } catch (error) {
         if (copyMessage) {
-          copyMessage.textContent = "Kopyalama başarısız!";
-          setTimeout(() => copyMessage.textContent = "", 1500);
+          copyMessage.textContent = "Kopyalama başarısız oldu.";
+          copyMessage.classList.add("show");
+          setTimeout(() => {
+            copyMessage.textContent = "";
+            copyMessage.classList.remove("show");
+          }, 1800);
         }
       }
     });
   }
 
-  // ===== ONLINE STATUS =====
-  function updateStatus() {
-    if (!statusText) return;
+  function updateOnlineStatus() {
+    if (!systemStatus) return;
+
     if (navigator.onLine) {
-      statusText.textContent = "🟢 Sistem Online";
-      statusText.style.color = "#00ff88";
+      systemStatus.textContent = "Sistem Çevrimiçi";
+      systemStatus.classList.remove("offline");
+      systemStatus.classList.add("online");
     } else {
-      statusText.textContent = "🔴 Offline";
-      statusText.style.color = "#ff3c3c";
+      systemStatus.textContent = "Sistem Çevrim Dışı";
+      systemStatus.classList.remove("online");
+      systemStatus.classList.add("offline");
     }
   }
 
-  updateStatus();
-  window.addEventListener("online", updateStatus);
-  window.addEventListener("offline", updateStatus);
+  updateOnlineStatus();
+  window.addEventListener("online", updateOnlineStatus);
+  window.addEventListener("offline", updateOnlineStatus);
 
-  // ===== 3D HOVER EFFECT =====
-  const cards = document.querySelectorAll(".feature-card");
+  function handleNavbar() {
+    if (!navbar) return;
+    if (window.scrollY > 20) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
 
-  cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
+  handleNavbar();
+  window.addEventListener("scroll", handleNavbar);
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("visible"));
+  }
+
+  function animateCount(el) {
+    const target = Number(el.dataset.count || 0);
+    const duration = 1400;
+    const startTime = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(target * eased);
+      el.textContent = value.toLocaleString("tr-TR");
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target.toLocaleString("tr-TR");
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  if ("IntersectionObserver" in window && statNumbers.length) {
+    const statsObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    statNumbers.forEach((item) => statsObserver.observe(item));
+  } else {
+    statNumbers.forEach((item) => {
+      const target = Number(item.dataset.count || 0);
+      item.textContent = target.toLocaleString("tr-TR");
+    });
+  }
+
+  function handleParallax() {
+    const scrollY = window.scrollY;
+    parallaxItems.forEach((item) => {
+      const speed = Number(item.dataset.parallax || 0.15);
+      item.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+    });
+  }
+
+  handleParallax();
+  window.addEventListener("scroll", handleParallax);
+
+  const cards = document.querySelectorAll(".tilt-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
       const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
 
-      const rotateX = -(y - rect.height / 2) / 15;
-      const rotateY = (x - rect.width / 2) / 15;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
 
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      const rotateX = -((y - centerY) / centerY) * 6;
+
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
     });
 
     card.addEventListener("mouseleave", () => {
-      card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+      card.style.transform =
+        "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
     });
   });
 
-  // ===== SCROLL REVEAL =====
-  const reveals = document.querySelectorAll(".reveal");
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+  const spotlight = document.querySelector(".spotlight");
+  if (spotlight) {
+    window.addEventListener("mousemove", (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      spotlight.style.background = `radial-gradient(circle at ${x * 100}% ${
+        y * 100
+      }%, rgba(255,120,40,0.18), rgba(255,120,40,0.04) 25%, rgba(0,0,0,0) 55%)`;
     });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-
-  // ===== FIRE PARTICLES =====
-  const canvas = document.getElementById("fireCanvas");
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener("resize", resize);
-    resize();
-
-    const particles = [];
-
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedY = Math.random() * 2 + 1;
-        this.alpha = Math.random() * 0.5 + 0.2;
-      }
-
-      update() {
-        this.y -= this.speedY;
-        this.alpha -= 0.005;
-        if (this.alpha <= 0) this.reset();
-      }
-
-      draw() {
-        ctx.fillStyle = `rgba(255,120,0,${this.alpha})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 80; i++) {
-      particles.push(new Particle());
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animate);
-    }
-
-    animate();
   }
 
+  const yearNode = document.getElementById("footerYear");
+  if (yearNode) {
+    yearNode.textContent = String(new Date().getFullYear());
+  }
 });
