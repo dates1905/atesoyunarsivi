@@ -24,16 +24,9 @@ body {
   color: var(--text);
   background:
     linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.82)),
-    url("./assets/background.jpg") center/cover no-repeat fixed;
+    url("./background.jpg") center/cover no-repeat fixed;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-#fireCanvas {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
 }
 
 .bg-overlay {

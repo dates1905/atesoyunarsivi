@@ -1,7 +1,10 @@
+// ===== SÜRÜM AYARLARI =====
 const APP_VERSION = "1.0.14";
 const BUILD_DATE = "20.03.2026";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== ELEMENTLER =====
   const versionText = document.getElementById("versionText");
   const buildDate = document.getElementById("buildDate");
   const versionBadge = document.getElementById("versionBadge");
@@ -9,14 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const copyBtn = document.getElementById("copyVersionBtn");
   const copyMessage = document.getElementById("copyMessage");
 
+  // ===== SÜRÜM YAZDIR =====
   if (versionText) versionText.textContent = `v${APP_VERSION}`;
   if (buildDate) buildDate.textContent = `Build: ${BUILD_DATE}`;
   if (versionBadge) versionBadge.textContent = `Sürüm: v${APP_VERSION}`;
 
+  // ===== İNDİRME LİNKİ =====
   if (downloadBtn) {
     downloadBtn.href = `https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v${APP_VERSION}/Ates-Oyun-Arsivi-Setup-${APP_VERSION}.exe`;
   }
 
+  // ===== KOPYALA =====
   if (copyBtn) {
     copyBtn.addEventListener("click", async () => {
       try {
@@ -29,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } catch (err) {
         if (copyMessage) {
-          copyMessage.textContent = "Kopyalama başarısız.";
+          copyMessage.textContent = "Kopyalama başarısız!";
           setTimeout(() => {
             copyMessage.textContent = "";
           }, 1500);
@@ -38,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ===== REVEAL (SİTE BOŞ GÖRÜNMESİN) =====
   const revealElements = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
@@ -57,11 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach((el) => el.classList.add("visible"));
   }
 
-  // İlk ekran boş görünmesin diye hero içeriğini anında aç
+  // ===== İLK AÇILIŞTA GÖRÜNSÜN =====
   revealElements.forEach((el) => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
       el.classList.add("visible");
     }
   });
+
 });
