@@ -1,149 +1,152 @@
+// ===== SÜRÜM AYARLARI =====
 const APP_VERSION = "1.0.14";
 const BUILD_DATE = "20.03.2026";
 const DOWNLOAD_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.14/Ates-Oyun-Arsivi-Setup-1.0.14.exe";
 
-const versionText = document.getElementById("versionText");
-const versionBadge = document.getElementById("versionBadge");
-const buildDate = document.getElementById("buildDate");
-const copyVersionBtn = document.getElementById("copyVersionBtn");
-const copyMessage = document.getElementById("copyMessage");
-const downloadBtn = document.getElementById("downloadBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (versionText) {
-  versionText.textContent = `v${APP_VERSION}`;
-}
+  // ===== ELEMENTLER =====
+  const versionText = document.getElementById("versionText");
+  const buildDate = document.getElementById("buildDate");
+  const versionBadge = document.getElementById("versionBadge");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const copyBtn = document.getElementById("copyVersionBtn");
+  const copyMessage = document.getElementById("copyMessage");
+  const statusText = document.getElementById("systemStatus");
 
-if (versionBadge) {
-  versionBadge.textContent = `Sürüm: v${APP_VERSION}`;
-}
+  // ===== SÜRÜM YAZDIR =====
+  if (versionText) versionText.textContent = `v${APP_VERSION}`;
+  if (buildDate) buildDate.textContent = `Build: ${BUILD_DATE}`;
+  if (versionBadge) versionBadge.textContent = `Sürüm: v${APP_VERSION}`;
 
-if (buildDate) {
-  buildDate.textContent = `Build: ${BUILD_DATE}`;
-}
+  // ===== DOWNLOAD =====
+  if (downloadBtn) {
+    downloadBtn.href = DOWNLOAD_URL;
+  }
 
-if (downloadBtn) {
-  downloadBtn.href = DOWNLOAD_URL;
-}
-
-if (copyVersionBtn) {
-  copyVersionBtn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(`v${APP_VERSION}`);
-      if (copyMessage) {
-        copyMessage.textContent = `Sürüm kopyalandı: v${APP_VERSION}`;
-        setTimeout(() => {
-          copyMessage.textContent = "";
-        }, 2200);
+  // ===== COPY =====
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(`v${APP_VERSION}`);
+        if (copyMessage) {
+          copyMessage.textContent = "Sürüm kopyalandı!";
+          setTimeout(() => copyMessage.textContent = "", 1500);
+        }
+      } catch {
+        if (copyMessage) {
+          copyMessage.textContent = "Kopyalama başarısız!";
+          setTimeout(() => copyMessage.textContent = "", 1500);
+        }
       }
-    } catch (error) {
-      if (copyMessage) {
-        copyMessage.textContent = "Kopyalama başarısız oldu.";
-        setTimeout(() => {
-          copyMessage.textContent = "";
-        }, 2200);
-      }
+    });
+  }
+
+  // ===== ONLINE STATUS =====
+  function updateStatus() {
+    if (!statusText) return;
+    if (navigator.onLine) {
+      statusText.textContent = "🟢 Sistem Online";
+      statusText.style.color = "#00ff88";
+    } else {
+      statusText.textContent = "🔴 Offline";
+      statusText.style.color = "#ff3c3c";
     }
+  }
+
+  updateStatus();
+  window.addEventListener("online", updateStatus);
+  window.addEventListener("offline", updateStatus);
+
+  // ===== 3D HOVER EFFECT =====
+  const cards = document.querySelectorAll(".feature-card");
+
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateX = -(y - rect.height / 2) / 15;
+      const rotateY = (x - rect.width / 2) / 15;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateX(0) rotateY(0) scale(1)";
+    });
   });
-}
 
-const canvas = document.getElementById("fireCanvas");
+  // ===== SCROLL REVEAL =====
+  const reveals = document.querySelectorAll(".reveal");
 
-if (canvas) {
-  const ctx = canvas.getContext("2d");
-  let particles = [];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  reveals.forEach(el => observer.observe(el));
 
-  class FireParticle {
-    constructor() {
-      this.reset(true);
+  // ===== FIRE PARTICLES =====
+  const canvas = document.getElementById("fireCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
 
-    reset(initial = false) {
-      this.x = Math.random() * canvas.width;
-      this.y = initial
-        ? Math.random() * canvas.height
-        : canvas.height + Math.random() * 40;
+    window.addEventListener("resize", resize);
+    resize();
 
-      this.size = 1 + Math.random() * 4;
-      this.speedY = 0.8 + Math.random() * 2.2;
-      this.speedX = (Math.random() - 0.5) * 1.2;
-      this.alpha = 0.18 + Math.random() * 0.45;
-      this.life = 50 + Math.random() * 70;
-      this.maxLife = this.life;
+    const particles = [];
 
-      const palette = [
-        "255,106,0",
-        "255,140,0",
-        "255,180,80",
-        "255,90,0"
-      ];
-      this.color = palette[Math.floor(Math.random() * palette.length)];
-    }
+    class Particle {
+      constructor() {
+        this.reset();
+      }
 
-    update() {
-      this.y -= this.speedY;
-      this.x += this.speedX + Math.sin(this.y * 0.02) * 0.2;
-      this.life -= 1;
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedY = Math.random() * 2 + 1;
+        this.alpha = Math.random() * 0.5 + 0.2;
+      }
 
-      if (this.life <= 0 || this.y < -20) {
-        this.reset(false);
+      update() {
+        this.y -= this.speedY;
+        this.alpha -= 0.005;
+        if (this.alpha <= 0) this.reset();
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255,120,0,${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
 
-    draw() {
-      const lifeRatio = this.life / this.maxLife;
-      const currentAlpha = this.alpha * lifeRatio;
-
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(${this.color}, ${currentAlpha})`;
-      ctx.shadowBlur = 18;
-      ctx.shadowColor = `rgba(${this.color}, ${currentAlpha})`;
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  function createParticles() {
-    particles = [];
-    const count = Math.max(60, Math.floor(window.innerWidth / 18));
-
-    for (let i = 0; i < count; i++) {
-      particles.push(new FireParticle());
-    }
-  }
-
-  function drawFireBaseGlow() {
-    const gradient = ctx.createLinearGradient(0, canvas.height, 0, canvas.height - 220);
-    gradient.addColorStop(0, "rgba(255,106,0,0.18)");
-    gradient.addColorStop(0.4, "rgba(255,120,0,0.08)");
-    gradient.addColorStop(1, "rgba(255,120,0,0)");
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, canvas.height - 240, canvas.width, 240);
-  }
-
-  function animateFire() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawFireBaseGlow();
-
-    for (const particle of particles) {
-      particle.update();
-      particle.draw();
+    for (let i = 0; i < 80; i++) {
+      particles.push(new Particle());
     }
 
-    requestAnimationFrame(animateFire);
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
   }
 
-  resizeCanvas();
-  createParticles();
-  animateFire();
-
-  window.addEventListener("resize", () => {
-    resizeCanvas();
-    createParticles();
-  });
-}
+});
