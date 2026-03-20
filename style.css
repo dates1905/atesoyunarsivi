@@ -348,14 +348,15 @@ body {
 }
 
 .reveal {
-  opacity: 1;
-  transform: none;
-  transition: none;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
-.reveal.show {
-  opacity: 1;
-  transform: none;
+.reveal.show,
+.reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 .delay-1 {
