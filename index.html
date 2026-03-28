@@ -743,9 +743,10 @@
   </div>
 
   <script>
-    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
-    const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
+  const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
+  const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
 
+  window.addEventListener("DOMContentLoaded", () => {
     const els = {
       versionText: document.getElementById("versionText"),
       buildDate: document.getElementById("buildDate"),
@@ -755,12 +756,14 @@
       versionBadge: document.getElementById("versionBadge"),
       statusBox: document.getElementById("statusBox"),
       downloadBtn: document.getElementById("downloadBtn"),
-      footerVersion: document.getElementById("footerVersion")
+      footerVersion: document.getElementById("footerVersion"),
+      particles: document.getElementById("particles")
     };
 
     function createParticles() {
-      const wrap = document.getElementById("particles");
-      const count = window.innerWidth < 768 ? 24 : 42;
+      if (!els.particles) return;
+      els.particles.innerHTML = "";
+      const count = window.innerWidth < 768 ? 20 : 36;
 
       for (let i = 0; i < count; i++) {
         const p = document.createElement("span");
@@ -772,11 +775,12 @@
         p.style.animationDuration = 7 + Math.random() * 9 + "s";
         p.style.animationDelay = Math.random() * 8 + "s";
         p.style.opacity = 0.16 + Math.random() * 0.38;
-        wrap.appendChild(p);
+        els.particles.appendChild(p);
       }
     }
 
     function setStatus(message, type = "warn", loading = false) {
+      if (!els.statusBox) return;
       els.statusBox.className = "status-box " + type;
       els.statusBox.innerHTML = `
         ${loading ? '<div class="spinner"></div>' : '<div class="dot"></div>'}
@@ -796,14 +800,7 @@
 
     function pickExeAsset(assets) {
       if (!Array.isArray(assets)) return null;
-
-      const exactExe = assets.find(asset => /\.exe$/i.test(asset.name || ""));
-      if (exactExe) return exactExe;
-
-      const setupExe = assets.find(asset => /setup/i.test(asset.name || "") && /\.exe$/i.test(asset.name || ""));
-      if (setupExe) return setupExe;
-
-      return null;
+      return assets.find(asset => /\.exe$/i.test(asset.name || "")) || null;
     }
 
     async function loadLatestRelease() {
@@ -811,9 +808,8 @@
         setStatus("GitHub üzerinden en son sürüm bilgisi alınıyor...", "warn", true);
 
         const response = await fetch(RELEASE_API_URL, {
-          headers: {
-            "Accept": "application/vnd.github+json"
-          }
+          headers: { "Accept": "application/vnd.github+json" },
+          cache: "no-store"
         });
 
         if (!response.ok) {
@@ -827,40 +823,47 @@
         const downloadUrl = exeAsset?.browser_download_url || release.html_url || RELEASES_PAGE_URL;
         const fileName = exeAsset?.name || "İndirilebilir .exe bulunamadı";
 
-        els.versionText.textContent = version;
-        els.buildDate.textContent = buildDate;
-        els.releaseStatus.textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
-        els.fileName.textContent = "Dosya: " + fileName;
-        els.versionBadge.textContent = "Sürüm: " + version;
-        els.footerVersion.textContent = "Canlı sürüm: " + version;
-        els.downloadBtn.href = downloadUrl;
-
-        if (exeAsset) {
-          els.fileType.textContent = ".exe";
-          els.downloadBtn.textContent = "Kurulumu İndir";
-          setStatus("En güncel sürüm başarıyla yüklendi: " + version, "ok", false);
-        } else {
-          els.fileType.textContent = "Release";
-          els.downloadBtn.textContent = "Release Sayfasını Aç";
-          setStatus("Release bulundu ama .exe dosyası otomatik seçilemedi. Release sayfası hazır.", "warn", false);
+        if (els.versionText) els.versionText.textContent = version;
+        if (els.buildDate) els.buildDate.textContent = buildDate;
+        if (els.releaseStatus) els.releaseStatus.textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
+        if (els.fileName) els.fileName.textContent = "Dosya: " + fileName;
+        if (els.versionBadge) els.versionBadge.textContent = "Sürüm: " + version;
+        if (els.footerVersion) els.footerVersion.textContent = "Canlı sürüm: " + version;
+        if (els.downloadBtn) {
+          els.downloadBtn.href = downloadUrl;
+          els.downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "Release Sayfasını Aç";
         }
+        if (els.fileType) els.fileType.textContent = exeAsset ? ".exe" : "Release";
+
+        setStatus(
+          exeAsset
+            ? "En güncel sürüm başarıyla yüklendi: " + version
+            : "Release bulundu ama .exe dosyası otomatik seçilemedi.",
+          exeAsset ? "ok" : "warn",
+          false
+        );
       } catch (error) {
         console.error("Release yüklenemedi:", error);
-        els.versionText.textContent = "Yüklenemedi";
-        els.buildDate.textContent = "Bilinmiyor";
-        els.releaseStatus.textContent = "Bağlantı Hatası";
-        els.fileType.textContent = "Release";
-        els.fileName.textContent = "Dosya: Bilinmiyor";
-        els.versionBadge.textContent = "Sürüm: Bilinmiyor";
-        els.footerVersion.textContent = "Release bilgisi alınamadı";
-        els.downloadBtn.href = RELEASES_PAGE_URL;
-        els.downloadBtn.textContent = "Release Sayfasını Aç";
+
+        if (els.versionText) els.versionText.textContent = "Yüklenemedi";
+        if (els.buildDate) els.buildDate.textContent = "Bilinmiyor";
+        if (els.releaseStatus) els.releaseStatus.textContent = "Bağlantı Hatası";
+        if (els.fileType) els.fileType.textContent = "Release";
+        if (els.fileName) els.fileName.textContent = "Dosya: Bilinmiyor";
+        if (els.versionBadge) els.versionBadge.textContent = "Sürüm: Bilinmiyor";
+        if (els.footerVersion) els.footerVersion.textContent = "Release bilgisi alınamadı";
+        if (els.downloadBtn) {
+          els.downloadBtn.href = RELEASES_PAGE_URL;
+          els.downloadBtn.textContent = "Release Sayfasını Aç";
+        }
+
         setStatus("GitHub API geçici olarak cevap vermedi. Release sayfası kullanılabilir.", "warn", false);
       }
     }
 
     createParticles();
     loadLatestRelease();
-  </script>
+  });
+</script>
 </body>
 </html>
