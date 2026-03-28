@@ -5,227 +5,305 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATEŞ Oyun Arşivi</title>
   <meta name="description" content="ATEŞ Oyun Arşivi - modern oyun launcher ve arşiv sistemi" />
+  <meta name="theme-color" content="#0b0f17" />
   <style>
     * {
       box-sizing: border-box;
     }
 
     :root {
-      --bg1: #06090f;
-      --bg2: #0d1420;
-      --card: rgba(13, 20, 32, 0.82);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text: #f4f7fb;
-      --muted: #9fb0c7;
-      --accent: #ff6a00;
-      --accent-2: #ff2d55;
-      --accent-soft: rgba(255, 106, 0, 0.18);
-      --success: #22c55e;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      --bg: #070b12;
+      --bg-soft: #0c1220;
+      --card: rgba(14, 19, 32, 0.82);
+      --card-2: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.09);
+      --text: #eef3ff;
+      --muted: #98a8c3;
+      --accent: #ff6b1a;
+      --accent-2: #ff2f6d;
+      --green: #1fc97a;
+      --shadow: 0 30px 80px rgba(0,0,0,0.42);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --max: 1240px;
     }
 
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100%;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255, 106, 0, 0.15), transparent 28%),
-        radial-gradient(circle at top right, rgba(255, 45, 85, 0.14), transparent 25%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
-    }
-
-    body {
+        radial-gradient(circle at 10% 10%, rgba(255,107,26,0.18), transparent 26%),
+        radial-gradient(circle at 90% 10%, rgba(255,47,109,0.16), transparent 24%),
+        linear-gradient(135deg, #05070c 0%, #0b111b 45%, #0b0f17 100%);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
       overflow-x: hidden;
     }
 
-    .bg-glow {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .bg-blur {
       position: fixed;
       inset: 0;
       pointer-events: none;
       overflow: hidden;
+      z-index: 0;
     }
 
-    .bg-glow::before,
-    .bg-glow::after {
+    .bg-blur::before,
+    .bg-blur::after {
       content: "";
       position: absolute;
-      width: 36vw;
-      height: 36vw;
       border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.14;
+      filter: blur(110px);
+      opacity: 0.2;
+      animation: floatBlob 12s ease-in-out infinite;
     }
 
-    .bg-glow::before {
-      left: -8vw;
-      top: -8vw;
-      background: #ff6a00;
-      animation: floatA 10s ease-in-out infinite;
+    .bg-blur::before {
+      width: 34vw;
+      height: 34vw;
+      left: -10vw;
+      top: -6vw;
+      background: #ff6b1a;
     }
 
-    .bg-glow::after {
+    .bg-blur::after {
+      width: 30vw;
+      height: 30vw;
       right: -8vw;
-      bottom: -8vw;
-      background: #ff2d55;
-      animation: floatB 12s ease-in-out infinite;
+      bottom: -10vw;
+      background: #ff2f6d;
+      animation-duration: 14s;
     }
 
-    @keyframes floatA {
+    @keyframes floatBlob {
       0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(30px, 20px); }
+      50% { transform: translate(20px, 24px); }
     }
 
-    @keyframes floatB {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(-30px, -20px); }
+    .particles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff8a3d, #ff2f6d);
+      opacity: 0.45;
+      animation: rise linear infinite;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.45;
+      }
+      to {
+        transform: translateY(-110vh) scale(0.6);
+        opacity: 0;
+      }
     }
 
     .wrap {
       position: relative;
       z-index: 1;
       width: 100%;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
     }
 
-    .card {
-      width: 100%;
-      max-width: 1080px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(18px);
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 11, 18, 0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .topbar-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(255,107,26,0.25), rgba(255,47,109,0.2)),
+        rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .mini-badge {
+      min-height: 40px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #c9d6ec;
+      font-size: 13px;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 12px rgba(255,107,26,0.7);
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 0;
+      padding: 40px 0 26px;
     }
 
-    .left {
-      padding: 56px 46px;
-    }
-
-    .right {
+    .hero-card {
       position: relative;
-      min-height: 540px;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
-        url("launcher.jpg") center center / cover no-repeat;
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+        rgba(13, 17, 27, 0.78);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: var(--shadow);
     }
 
-    .right::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(6,9,15,0.15) 0%, rgba(6,9,15,0.42) 55%, rgba(6,9,15,0.72) 100%);
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 650px;
     }
 
-    .badge {
+    .hero-left {
+      padding: 52px 46px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 9px 14px;
+      width: fit-content;
+      min-height: 42px;
+      padding: 0 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #ffd3bd;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #ffe0cf;
       font-size: 13px;
-      letter-spacing: 0.2px;
       margin-bottom: 22px;
     }
 
-    .badge-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 14px rgba(255,106,0,0.7);
+    .hero-title {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -2.5px;
+      font-weight: 900;
     }
 
-    h1 {
-      font-size: 54px;
-      line-height: 1.02;
-      margin: 0 0 16px;
-      letter-spacing: -1.8px;
-    }
-
-    .accent {
-      background: linear-gradient(135deg, #ffb067, #ff6a00, #ff2d55);
+    .hero-title .accent {
+      background: linear-gradient(135deg, #ffb167, #ff6b1a, #ff2f6d);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      display: inline-block;
     }
 
-    .desc {
-      font-size: 18px;
-      line-height: 1.75;
+    .hero-desc {
+      margin: 22px 0 28px;
+      max-width: 700px;
       color: var(--muted);
-      max-width: 680px;
-      margin-bottom: 28px;
+      font-size: 18px;
+      line-height: 1.8;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #9fb0c7;
-      margin-bottom: 8px;
-    }
-
-    .stat-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: #fff;
-      word-break: break-word;
-    }
-
-    .actions {
+    .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
     }
 
     .btn {
-      appearance: none;
-      border: 0;
-      outline: none;
-      cursor: pointer;
-      text-decoration: none;
+      min-height: 56px;
+      padding: 0 22px;
+      border-radius: 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      min-height: 56px;
-      padding: 0 24px;
-      border-radius: 16px;
-      font-size: 16px;
-      font-weight: 700;
-      transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      font-weight: 800;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
     }
 
     .btn:hover {
@@ -233,241 +311,426 @@
     }
 
     .btn-primary {
-      color: #fff;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 14px 30px rgba(255, 106, 0, 0.28);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(255, 107, 26, 0.28);
     }
 
     .btn-secondary {
+      background: rgba(255,255,255,0.05);
       color: #fff;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.08);
     }
 
-    .download-info {
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px 16px 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 94px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8ea0bc;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .hero-right {
+      position: relative;
+      min-height: 650px;
+      background:
+        linear-gradient(90deg, rgba(7,11,18,0.1) 0%, rgba(7,11,18,0.28) 35%, rgba(7,11,18,0.55) 100%),
+        url("launcher.jpg") center center / cover no-repeat;
+    }
+
+    .hero-right::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(255,107,26,0.12), transparent 18%),
+        radial-gradient(circle at 88% 15%, rgba(255,47,109,0.12), transparent 22%);
+    }
+
+    .floating-panel {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: min(360px, calc(100% - 48px));
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(7, 11, 18, 0.76);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.34);
+    }
+
+    .floating-title {
+      font-size: 14px;
+      color: #ffd9c6;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .file-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .pill {
+      min-height: 40px;
+      padding: 0 14px;
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #c8d3e3;
-      font-size: 14px;
+      color: #d0ddf0;
+      font-size: 13px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .status {
-      margin-top: 22px;
-      padding: 16px 18px;
+    .status-box {
+      margin-top: 14px;
+      min-height: 58px;
       border-radius: 16px;
-      font-size: 15px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
       line-height: 1.6;
+      border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #d5deea;
+      color: #dce6f5;
     }
 
-    .status.ok {
-      border-color: rgba(34, 197, 94, 0.35);
-      background: rgba(34, 197, 94, 0.1);
-      color: #d7ffe2;
+    .status-box.ok {
+      background: rgba(31, 201, 122, 0.11);
+      border-color: rgba(31, 201, 122, 0.34);
+      color: #dbffec;
     }
 
-    .status.warn {
-      border-color: rgba(255, 106, 0, 0.35);
-      background: rgba(255, 106, 0, 0.1);
-      color: #ffe7d3;
+    .status-box.warn {
+      background: rgba(255, 107, 26, 0.10);
+      border-color: rgba(255, 107, 26, 0.26);
+      color: #ffe6d7;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      padding: 0 46px 46px;
-    }
-
-    .feature {
-      border-radius: 20px;
-      padding: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .feature h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 15px;
-    }
-
-    .loader {
-      display: inline-block;
+    .spinner {
       width: 16px;
       height: 16px;
-      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.24);
       border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.9s linear infinite;
-      vertical-align: middle;
-      margin-right: 10px;
+      animation: spin .9s linear infinite;
+      flex: 0 0 auto;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
-    @media (max-width: 960px) {
-      .hero {
+    .section {
+      padding: 0 0 34px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature-card {
+      border-radius: 24px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
+        rgba(12,18,30,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, rgba(255,107,26,0.18), rgba(255,47,109,0.16));
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .feature-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 8px 0 42px;
+      color: #91a2bc;
+      font-size: 14px;
+    }
+
+    .footer-box {
+      border-radius: 20px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid {
         grid-template-columns: 1fr;
       }
 
-      .right {
-        min-height: 320px;
+      .hero-right {
+        min-height: 420px;
         order: -1;
       }
 
-      .left {
-        padding: 34px 24px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-        padding: 0 24px 24px;
+      .hero-left {
+        padding: 34px 24px 26px;
       }
 
       .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-grid {
         grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .desc {
-        font-size: 16px;
       }
     }
 
-    @media (max-width: 560px) {
-      .wrap {
-        padding: 14px;
+    @media (max-width: 700px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
       }
 
-      .card {
-        border-radius: 20px;
+      .topbar-inner {
+        height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      .left {
-        padding: 24px 18px;
+      .hero {
+        padding-top: 18px;
       }
 
-      .actions {
+      .hero-title {
+        letter-spacing: -1.4px;
+      }
+
+      .hero-desc {
+        font-size: 16px;
+      }
+
+      .hero-actions {
         flex-direction: column;
       }
 
       .btn {
         width: 100%;
       }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        min-height: 320px;
+      }
+
+      .floating-panel {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100% - 28px);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="bg-glow"></div>
+  <div class="bg-blur"></div>
+  <div class="particles" id="particles"></div>
 
   <div class="wrap">
-    <div class="card">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-logo">A</div>
+          <div class="brand-text">
+            <div class="brand-title">ATEŞ Oyun Arşivi</div>
+            <div class="brand-sub">Akıllı launcher ve modern oyun kütüphanesi</div>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <div class="mini-badge">
+            <span class="dot"></span>
+            En son sürüm otomatik çekiliyor
+          </div>
+          <a class="mini-badge" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases" target="_blank" rel="noopener noreferrer">
+            GitHub Release
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
       <section class="hero">
-        <div class="left">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            Akıllı oyun arşivi ve launcher sistemi
-          </div>
+        <div class="container">
+          <div class="hero-card">
+            <div class="hero-grid">
+              <div class="hero-left">
+                <div class="eyebrow">
+                  <span class="dot"></span>
+                  Oyunlarını tek merkezden yönet
+                </div>
 
-          <h1>
-            <span class="accent">ATEŞ</span><br />
-            Oyun Arşivi
-          </h1>
+                <h1 class="hero-title">
+                  <span class="accent">ATEŞ</span><br />
+                  Oyun Arşivi
+                </h1>
 
-          <p class="desc">
-            Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat, kişisel arşivini modern bir masaüstü launcher deneyimine dönüştür.
-          </p>
+                <p class="hero-desc">
+                  Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat ve kendi kütüphaneni güçlü bir masaüstü launcher deneyimine dönüştür. En güncel sürüm bilgisi ve indirme bağlantısı doğrudan GitHub release üzerinden otomatik alınır.
+                </p>
 
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-label">Sürüm</div>
-              <div class="stat-value" id="versionText">Yükleniyor...</div>
+                <div class="hero-actions">
+                  <a
+                    id="downloadBtn"
+                    class="btn btn-primary"
+                    href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Kurulumu İndir
+                  </a>
+
+                  <a
+                    class="btn btn-secondary"
+                    href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Tüm Sürümleri Gör
+                  </a>
+                </div>
+
+                <div class="stats">
+                  <div class="stat">
+                    <div class="stat-label">Sürüm</div>
+                    <div class="stat-value" id="versionText">Yükleniyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Build</div>
+                    <div class="stat-value" id="buildDate">Yükleniyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Durum</div>
+                    <div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Kurulum</div>
+                    <div class="stat-value" id="fileType">.exe</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-right">
+                <div class="floating-panel">
+                  <div class="floating-title">Canlı release bilgisi</div>
+                  <div class="file-row">
+                    <div class="pill" id="fileName">Dosya: yükleniyor...</div>
+                    <div class="pill" id="versionBadge">Sürüm: yükleniyor...</div>
+                  </div>
+                  <div class="status-box warn" id="statusBox">
+                    <div class="spinner"></div>
+                    <span>GitHub üzerinden en son sürüm bilgisi alınıyor...</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="stat">
-              <div class="stat-label">Build</div>
-              <div class="stat-value" id="buildDate">Yükleniyor...</div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Durum</div>
-              <div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div>
-            </div>
-          </div>
-
-          <div class="actions">
-            <a
-              id="downloadBtn"
-              class="btn btn-primary"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Kurulumu İndir
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Tüm Sürümleri Gör
-            </a>
-          </div>
-
-          <div class="download-info">
-            <span class="pill" id="fileName">Dosya: yükleniyor...</span>
-            <span class="pill">Tür: .exe</span>
-            <span class="pill" id="versionBadge">Sürüm: yükleniyor...</span>
-          </div>
-
-          <div class="status warn" id="statusBox">
-            <span class="loader"></span>En son sürüm bilgisi GitHub üzerinden alınıyor...
           </div>
         </div>
-
-        <div class="right"></div>
       </section>
 
-      <section class="features">
-        <div class="feature">
-          <h3>Akıllı Başlatma</h3>
-          <p>Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.</p>
-        </div>
-        <div class="feature">
-          <h3>Kişisel Arşiv</h3>
-          <p>Kapaklar, notlar, sıralama ve özel düzenlerle kendi oyun kütüphaneni güçlü şekilde yönet.</p>
-        </div>
-        <div class="feature">
-          <h3>Modern Deneyim</h3>
-          <p>Şık arayüz, özelleştirme seçenekleri ve sürekli gelişen masaüstü launcher yapısı.</p>
+      <section class="section">
+        <div class="container">
+          <div class="section-grid">
+            <div class="feature-card">
+              <div class="feature-icon">🚀</div>
+              <h3 class="feature-title">Akıllı Başlatma</h3>
+              <p class="feature-desc">
+                Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🖼️</div>
+              <h3 class="feature-title">Kapak ve Düzen</h3>
+              <p class="feature-desc">
+                Oyun kartları, kapaklar, sıralama ve kişisel arşiv düzeniyle modern bir görünüm sunar.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">⚙️</div>
+              <h3 class="feature-title">Sürekli Güncel</h3>
+              <p class="feature-desc">
+                Site, son release sürümünü ve indirme bağlantısını otomatik çektiği için her sürümde elle düzenleme gerekmez.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-box">
+          <div>ATEŞ Oyun Arşivi • Modern launcher deneyimi</div>
+          <div id="footerVersion">Sürüm bilgisi yükleniyor...</div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -478,43 +741,65 @@
       versionText: document.getElementById("versionText"),
       buildDate: document.getElementById("buildDate"),
       releaseStatus: document.getElementById("releaseStatus"),
-      downloadBtn: document.getElementById("downloadBtn"),
+      fileType: document.getElementById("fileType"),
       fileName: document.getElementById("fileName"),
       versionBadge: document.getElementById("versionBadge"),
       statusBox: document.getElementById("statusBox"),
+      downloadBtn: document.getElementById("downloadBtn"),
+      footerVersion: document.getElementById("footerVersion")
     };
 
+    function createParticles() {
+      const wrap = document.getElementById("particles");
+      const count = window.innerWidth < 768 ? 24 : 42;
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("span");
+        p.className = "particle";
+        p.style.left = Math.random() * 100 + "vw";
+        const size = 2 + Math.random() * 4;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.animationDuration = 7 + Math.random() * 9 + "s";
+        p.style.animationDelay = Math.random() * 8 + "s";
+        p.style.opacity = 0.16 + Math.random() * 0.38;
+        wrap.appendChild(p);
+      }
+    }
+
     function setStatus(message, type = "warn", loading = false) {
-      els.statusBox.className = `status ${type}`;
-      els.statusBox.innerHTML = `${loading ? '<span class="loader"></span>' : ''}${message}`;
+      els.statusBox.className = "status-box " + type;
+      els.statusBox.innerHTML = `
+        ${loading ? '<div class="spinner"></div>' : '<div class="dot"></div>'}
+        <span>${message}</span>
+      `;
     }
 
     function formatDate(dateStr) {
       if (!dateStr) return "Bilinmiyor";
-      const date = new Date(dateStr);
-      if (Number.isNaN(date.getTime())) return "Bilinmiyor";
-
-      const day = String(date.getDate()).padStart(2, "0");
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const year = date.getFullYear();
-
+      const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return "Bilinmiyor";
+      const day = String(d.getDate()).padStart(2, "0");
+      const month = String(d.getMonth() + 1).padStart(2, "0");
+      const year = d.getFullYear();
       return `${day}.${month}.${year}`;
     }
 
     function pickExeAsset(assets) {
       if (!Array.isArray(assets)) return null;
 
-      const exeAsset =
-        assets.find(a => /\.exe$/i.test(a.name || "")) ||
-        assets.find(a => /setup/i.test(a.name || "")) ||
-        null;
+      const exactExe = assets.find(asset => /\.exe$/i.test(asset.name || ""));
+      if (exactExe) return exactExe;
 
-      return exeAsset;
+      const setupExe = assets.find(asset => /setup/i.test(asset.name || "") && /\.exe$/i.test(asset.name || ""));
+      if (setupExe) return setupExe;
+
+      return null;
     }
 
     async function loadLatestRelease() {
       try {
-        setStatus("En son sürüm bilgisi GitHub üzerinden alınıyor...", "warn", true);
+        setStatus("GitHub üzerinden en son sürüm bilgisi alınıyor...", "warn", true);
 
         const response = await fetch(RELEASE_API_URL, {
           headers: {
@@ -523,46 +808,49 @@
         });
 
         if (!response.ok) {
-          throw new Error(`GitHub API hatası: ${response.status}`);
+          throw new Error("GitHub API hatası: " + response.status);
         }
 
         const release = await response.json();
         const version = release.tag_name || release.name || "Bilinmiyor";
-        const publishedDate = formatDate(release.published_at);
+        const buildDate = formatDate(release.published_at);
         const exeAsset = pickExeAsset(release.assets || []);
         const downloadUrl = exeAsset?.browser_download_url || release.html_url || RELEASES_PAGE_URL;
-        const fileName = exeAsset?.name || "İndirilebilir dosya bulunamadı";
+        const fileName = exeAsset?.name || "İndirilebilir .exe bulunamadı";
 
         els.versionText.textContent = version;
-        els.buildDate.textContent = publishedDate;
+        els.buildDate.textContent = buildDate;
         els.releaseStatus.textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
-        els.versionBadge.textContent = `Sürüm: ${version}`;
-        els.fileName.textContent = `Dosya: ${fileName}`;
+        els.fileName.textContent = "Dosya: " + fileName;
+        els.versionBadge.textContent = "Sürüm: " + version;
+        els.footerVersion.textContent = "Canlı sürüm: " + version;
         els.downloadBtn.href = downloadUrl;
 
-        if (!exeAsset) {
+        if (exeAsset) {
+          els.fileType.textContent = ".exe";
+          els.downloadBtn.textContent = "Kurulumu İndir";
+          setStatus("En güncel sürüm başarıyla yüklendi: " + version, "ok", false);
+        } else {
+          els.fileType.textContent = "Release";
           els.downloadBtn.textContent = "Release Sayfasını Aç";
-          setStatus("Release bulundu ama .exe dosyası seçilemedi. Yine de release sayfasına gidebilirsin.", "warn", false);
-          return;
+          setStatus("Release bulundu ama .exe dosyası otomatik seçilemedi. Release sayfası hazır.", "warn", false);
         }
-
-        els.downloadBtn.textContent = "Kurulumu İndir";
-        setStatus(`En güncel sürüm başarıyla yüklendi: ${version}`, "ok", false);
       } catch (error) {
-        console.error("Release bilgisi alınamadı:", error);
-
+        console.error("Release yüklenemedi:", error);
         els.versionText.textContent = "Yüklenemedi";
         els.buildDate.textContent = "Bilinmiyor";
         els.releaseStatus.textContent = "Bağlantı Hatası";
-        els.versionBadge.textContent = "Sürüm: Bilinmiyor";
+        els.fileType.textContent = "Release";
         els.fileName.textContent = "Dosya: Bilinmiyor";
+        els.versionBadge.textContent = "Sürüm: Bilinmiyor";
+        els.footerVersion.textContent = "Release bilgisi alınamadı";
         els.downloadBtn.href = RELEASES_PAGE_URL;
         els.downloadBtn.textContent = "Release Sayfasını Aç";
-
-        setStatus("GitHub’dan otomatik sürüm bilgisi alınamadı. Release sayfası açılabilir durumda.", "warn", false);
+        setStatus("GitHub API geçici olarak cevap vermedi. Release sayfası kullanılabilir.", "warn", false);
       }
     }
 
+    createParticles();
     loadLatestRelease();
   </script>
 </body>
