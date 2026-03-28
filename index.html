@@ -345,13 +345,22 @@
       word-break: break-word;
     }
 
-    .hero-right {
-      position: relative;
-      min-height: 650px;
-      background:
-        linear-gradient(90deg, rgba(7,11,18,0.1) 0%, rgba(7,11,18,0.28) 35%, rgba(7,11,18,0.55) 100%),
-        url("/atesoyunarsivi/launcher.jpg?v=3") center center / cover no-repeat;
-    }
+   .hero-right {
+  position: relative;
+  min-height: 650px;
+  background:
+    linear-gradient(90deg, rgba(7,11,18,0.3), rgba(7,11,18,0.6)),
+    url("/atesoyunarsivi/launcher.jpg?v=3") center center no-repeat;
+  background-size: contain;
+  background-color: #0b0f17;
+}
+
+    @media (max-width: 768px) {
+  .hero-right {
+    background-size: contain;
+    min-height: 300px;
+  }
+}
 
     .hero-right::before {
       content: "";
