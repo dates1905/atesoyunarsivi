@@ -2,84 +2,568 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATEŞ Oyun Arşivi</title>
-
+  <meta name="description" content="ATEŞ Oyun Arşivi - modern oyun launcher ve arşiv sistemi" />
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg1: #06090f;
+      --bg2: #0d1420;
+      --card: rgba(13, 20, 32, 0.82);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f4f7fb;
+      --muted: #9fb0c7;
+      --accent: #ff6a00;
+      --accent-2: #ff2d55;
+      --accent-soft: rgba(255, 106, 0, 0.18);
+      --success: #22c55e;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0b0f14, #141a22);
-      color: white;
+      padding: 0;
+      min-height: 100%;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 106, 0, 0.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(255, 45, 85, 0.14), transparent 25%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-glow::before,
+    .bg-glow::after {
+      content: "";
+      position: absolute;
+      width: 36vw;
+      height: 36vw;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.14;
+    }
+
+    .bg-glow::before {
+      left: -8vw;
+      top: -8vw;
+      background: #ff6a00;
+      animation: floatA 10s ease-in-out infinite;
+    }
+
+    .bg-glow::after {
+      right: -8vw;
+      bottom: -8vw;
+      background: #ff2d55;
+      animation: floatB 12s ease-in-out infinite;
+    }
+
+    @keyframes floatA {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, 20px); }
+    }
+
+    @keyframes floatB {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-30px, -20px); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      padding: 28px;
     }
 
-    .container {
-      max-width: 600px;
+    .card {
+      width: 100%;
+      max-width: 1080px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0;
+    }
+
+    .left {
+      padding: 56px 46px;
+    }
+
+    .right {
+      position: relative;
+      min-height: 540px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+        url("launcher.jpg") center center / cover no-repeat;
+    }
+
+    .right::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,9,15,0.15) 0%, rgba(6,9,15,0.42) 55%, rgba(6,9,15,0.72) 100%);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #ffd3bd;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      margin-bottom: 22px;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 14px rgba(255,106,0,0.7);
     }
 
     h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 54px;
+      line-height: 1.02;
+      margin: 0 0 16px;
+      letter-spacing: -1.8px;
     }
 
-    h3 {
-      margin: 5px 0;
-      color: #00ffcc;
+    .accent {
+      background: linear-gradient(135deg, #ffb067, #ff6a00, #ff2d55);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .desc {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #9fb0c7;
+      margin-bottom: 8px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      word-break: break-word;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 10px;
+      appearance: none;
+      border: 0;
+      outline: none;
+      cursor: pointer;
       text-decoration: none;
-      background: #00ffcc;
-      color: black;
-      font-weight: bold;
-      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 16px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
 
     .btn:hover {
-      background: #00cfa3;
-      transform: scale(1.05);
+      transform: translateY(-2px);
     }
 
-    .info {
-      margin-top: 20px;
-      opacity: 0.8;
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 14px 30px rgba(255, 106, 0, 0.28);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .download-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #c8d3e3;
       font-size: 14px;
+    }
+
+    .status {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      font-size: 15px;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #d5deea;
+    }
+
+    .status.ok {
+      border-color: rgba(34, 197, 94, 0.35);
+      background: rgba(34, 197, 94, 0.1);
+      color: #d7ffe2;
+    }
+
+    .status.warn {
+      border-color: rgba(255, 106, 0, 0.35);
+      background: rgba(255, 106, 0, 0.1);
+      color: #ffe7d3;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 0 46px 46px;
+    }
+
+    .feature {
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .right {
+        min-height: 320px;
+        order: -1;
+      }
+
+      .left {
+        padding: 34px 24px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 0 24px 24px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .desc {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        padding: 14px;
+      }
+
+      .card {
+        border-radius: 20px;
+      }
+
+      .left {
+        padding: 24px 18px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
-
 <body>
+  <div class="bg-glow"></div>
 
-  <div class="container">
-    <h1>🔥 ATEŞ Oyun Arşivi</h1>
+  <div class="wrap">
+    <div class="card">
+      <section class="hero">
+        <div class="left">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Akıllı oyun arşivi ve launcher sistemi
+          </div>
 
-    <h3 id="versionText">Sürüm: v1.0.17</h3>
-    <div id="buildDate">Build: 29.03.2026</div>
+          <h1>
+            <span class="accent">ATEŞ</span><br />
+            Oyun Arşivi
+          </h1>
 
-    <a
-      id="downloadBtn"
-      class="btn"
-      href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases/download/v1.0.17/Ates-Oyun-Arsivi-Setup-1.0.17.exe"
-      target="_blank"
-    >
-      Kurulumu İndir
-    </a>
+          <p class="desc">
+            Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat, kişisel arşivini modern bir masaüstü launcher deneyimine dönüştür.
+          </p>
 
-    <div class="info">
-      Dosya: Ates-Oyun-Arsivi-Setup-1.0.17.exe<br>
-      Tür: .exe
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-label">Sürüm</div>
+              <div class="stat-value" id="versionText">Yükleniyor...</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Build</div>
+              <div class="stat-value" id="buildDate">Yükleniyor...</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Durum</div>
+              <div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a
+              id="downloadBtn"
+              class="btn btn-primary"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Kurulumu İndir
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tüm Sürümleri Gör
+            </a>
+          </div>
+
+          <div class="download-info">
+            <span class="pill" id="fileName">Dosya: yükleniyor...</span>
+            <span class="pill">Tür: .exe</span>
+            <span class="pill" id="versionBadge">Sürüm: yükleniyor...</span>
+          </div>
+
+          <div class="status warn" id="statusBox">
+            <span class="loader"></span>En son sürüm bilgisi GitHub üzerinden alınıyor...
+          </div>
+        </div>
+
+        <div class="right"></div>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <h3>Akıllı Başlatma</h3>
+          <p>Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.</p>
+        </div>
+        <div class="feature">
+          <h3>Kişisel Arşiv</h3>
+          <p>Kapaklar, notlar, sıralama ve özel düzenlerle kendi oyun kütüphaneni güçlü şekilde yönet.</p>
+        </div>
+        <div class="feature">
+          <h3>Modern Deneyim</h3>
+          <p>Şık arayüz, özelleştirme seçenekleri ve sürekli gelişen masaüstü launcher yapısı.</p>
+        </div>
+      </section>
     </div>
   </div>
 
+  <script>
+    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
+    const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
+
+    const els = {
+      versionText: document.getElementById("versionText"),
+      buildDate: document.getElementById("buildDate"),
+      releaseStatus: document.getElementById("releaseStatus"),
+      downloadBtn: document.getElementById("downloadBtn"),
+      fileName: document.getElementById("fileName"),
+      versionBadge: document.getElementById("versionBadge"),
+      statusBox: document.getElementById("statusBox"),
+    };
+
+    function setStatus(message, type = "warn", loading = false) {
+      els.statusBox.className = `status ${type}`;
+      els.statusBox.innerHTML = `${loading ? '<span class="loader"></span>' : ''}${message}`;
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return "Bilinmiyor";
+      const date = new Date(dateStr);
+      if (Number.isNaN(date.getTime())) return "Bilinmiyor";
+
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
+
+      return `${day}.${month}.${year}`;
+    }
+
+    function pickExeAsset(assets) {
+      if (!Array.isArray(assets)) return null;
+
+      const exeAsset =
+        assets.find(a => /\.exe$/i.test(a.name || "")) ||
+        assets.find(a => /setup/i.test(a.name || "")) ||
+        null;
+
+      return exeAsset;
+    }
+
+    async function loadLatestRelease() {
+      try {
+        setStatus("En son sürüm bilgisi GitHub üzerinden alınıyor...", "warn", true);
+
+        const response = await fetch(RELEASE_API_URL, {
+          headers: {
+            "Accept": "application/vnd.github+json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`GitHub API hatası: ${response.status}`);
+        }
+
+        const release = await response.json();
+        const version = release.tag_name || release.name || "Bilinmiyor";
+        const publishedDate = formatDate(release.published_at);
+        const exeAsset = pickExeAsset(release.assets || []);
+        const downloadUrl = exeAsset?.browser_download_url || release.html_url || RELEASES_PAGE_URL;
+        const fileName = exeAsset?.name || "İndirilebilir dosya bulunamadı";
+
+        els.versionText.textContent = version;
+        els.buildDate.textContent = publishedDate;
+        els.releaseStatus.textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
+        els.versionBadge.textContent = `Sürüm: ${version}`;
+        els.fileName.textContent = `Dosya: ${fileName}`;
+        els.downloadBtn.href = downloadUrl;
+
+        if (!exeAsset) {
+          els.downloadBtn.textContent = "Release Sayfasını Aç";
+          setStatus("Release bulundu ama .exe dosyası seçilemedi. Yine de release sayfasına gidebilirsin.", "warn", false);
+          return;
+        }
+
+        els.downloadBtn.textContent = "Kurulumu İndir";
+        setStatus(`En güncel sürüm başarıyla yüklendi: ${version}`, "ok", false);
+      } catch (error) {
+        console.error("Release bilgisi alınamadı:", error);
+
+        els.versionText.textContent = "Yüklenemedi";
+        els.buildDate.textContent = "Bilinmiyor";
+        els.releaseStatus.textContent = "Bağlantı Hatası";
+        els.versionBadge.textContent = "Sürüm: Bilinmiyor";
+        els.fileName.textContent = "Dosya: Bilinmiyor";
+        els.downloadBtn.href = RELEASES_PAGE_URL;
+        els.downloadBtn.textContent = "Release Sayfasını Aç";
+
+        setStatus("GitHub’dan otomatik sürüm bilgisi alınamadı. Release sayfası açılabilir durumda.", "warn", false);
+      }
+    }
+
+    loadLatestRelease();
+  </script>
 </body>
 </html>
