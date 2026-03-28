@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<link rel="icon" href="/atesoyunarsivi/icon.ico?v=2" type="image/x-icon">
-<link rel="shortcut icon" href="/atesoyunarsivi/icon.ico?v=2" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ATEŞ Oyun Arşivi</title>
   <meta name="description" content="ATEŞ Oyun Arşivi - modern oyun launcher ve arşiv sistemi" />
   <meta name="theme-color" content="#0b0f17" />
+
+  <link rel="icon" href="/atesoyunarsivi/icon.ico?v=3" type="image/x-icon" />
+  <link rel="shortcut icon" href="/atesoyunarsivi/icon.ico?v=3" type="image/x-icon" />
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     :root {
       --bg: #070b12;
       --bg-soft: #0c1220;
       --card: rgba(14, 19, 32, 0.82);
-      --card-2: rgba(255,255,255,0.04);
       --line: rgba(255,255,255,0.09);
       --text: #eef3ff;
       --muted: #98a8c3;
@@ -27,7 +26,6 @@
       --shadow: 0 30px 80px rgba(0,0,0,0.42);
       --radius-xl: 28px;
       --radius-lg: 20px;
-      --radius-md: 16px;
       --max: 1240px;
     }
 
@@ -44,10 +42,7 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .bg-blur {
       position: fixed;
@@ -113,9 +108,7 @@
         transform: translateY(0) scale(1);
         opacity: 0;
       }
-      10% {
-        opacity: 0.45;
-      }
+      10% { opacity: 0.45; }
       to {
         transform: translateY(-110vh) scale(0.6);
         opacity: 0;
@@ -158,28 +151,24 @@
     }
 
     .brand-logo {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  overflow: hidden;
-  padding: 6px;
-}
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      overflow: hidden;
+      padding: 6px;
+    }
 
-.brand-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-    .brand-text {
-      min-width: 0;
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .brand-title {
@@ -223,6 +212,7 @@
       border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       box-shadow: 0 0 12px rgba(255,107,26,0.7);
+      flex: 0 0 auto;
     }
 
     .hero {
@@ -313,9 +303,7 @@
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -362,7 +350,7 @@
       min-height: 650px;
       background:
         linear-gradient(90deg, rgba(7,11,18,0.1) 0%, rgba(7,11,18,0.28) 35%, rgba(7,11,18,0.55) 100%),
-        url("launcher.jpg") center center / cover no-repeat;
+        url("/atesoyunarsivi/launcher.jpg?v=3") center center / cover no-repeat;
     }
 
     .hero-right::before {
@@ -453,13 +441,9 @@
       flex: 0 0 auto;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    .section {
-      padding: 0 0 34px;
-    }
+    .section { padding: 0 0 34px; }
 
     .section-grid {
       display: grid;
@@ -520,68 +504,28 @@
     }
 
     @media (max-width: 1120px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-right {
-        min-height: 420px;
-        order: -1;
-      }
-
-      .hero-left {
-        padding: 34px 24px 26px;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .section-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-right { min-height: 420px; order: -1; }
+      .hero-left { padding: 34px 24px 26px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 700px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
-      }
-
+      .container { width: min(var(--max), calc(100% - 20px)); }
       .topbar-inner {
         height: auto;
         padding: 14px 0;
         align-items: flex-start;
         flex-direction: column;
       }
-
-      .hero {
-        padding-top: 18px;
-      }
-
-      .hero-title {
-        letter-spacing: -1.4px;
-      }
-
-      .hero-desc {
-        font-size: 16px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-right {
-        min-height: 320px;
-      }
-
+      .hero { padding-top: 18px; }
+      .hero-title { letter-spacing: -1.4px; }
+      .hero-desc { font-size: 16px; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .stats { grid-template-columns: 1fr; }
+      .hero-right { min-height: 320px; }
       .floating-panel {
         right: 14px;
         bottom: 14px;
@@ -599,9 +543,9 @@
       <div class="container topbar-inner">
         <div class="brand">
           <div class="brand-logo">
-  <img src="/atesoyunarsivi/logo.png?v=2" alt="ATEŞ Oyun Arşivi Logo" />
-</div>
-          <div class="brand-text">
+            <img src="/atesoyunarsivi/logo.png?v=3" alt="ATEŞ Oyun Arşivi Logo" />
+          </div>
+          <div>
             <div class="brand-title">ATEŞ Oyun Arşivi</div>
             <div class="brand-sub">Akıllı launcher ve modern oyun kütüphanesi</div>
           </div>
@@ -636,7 +580,7 @@
                 </h1>
 
                 <p class="hero-desc">
-                  Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat ve kendi kütüphaneni güçlü bir masaüstü launcher deneyimine dönüştür. En güncel sürüm bilgisi ve indirme bağlantısı doğrudan GitHub release üzerinden otomatik alınır.
+                  Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat ve kendi kütüphaneni güçlü bir masaüstü launcher deneyimine dönüştür.
                 </p>
 
                 <div class="hero-actions">
@@ -707,25 +651,19 @@
             <div class="feature-card">
               <div class="feature-icon">🚀</div>
               <h3 class="feature-title">Akıllı Başlatma</h3>
-              <p class="feature-desc">
-                Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.
-              </p>
+              <p class="feature-desc">Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.</p>
             </div>
 
             <div class="feature-card">
               <div class="feature-icon">🖼️</div>
               <h3 class="feature-title">Kapak ve Düzen</h3>
-              <p class="feature-desc">
-                Oyun kartları, kapaklar, sıralama ve kişisel arşiv düzeniyle modern bir görünüm sunar.
-              </p>
+              <p class="feature-desc">Oyun kartları, kapaklar, sıralama ve kişisel arşiv düzeniyle modern bir görünüm sunar.</p>
             </div>
 
             <div class="feature-card">
               <div class="feature-icon">⚙️</div>
               <h3 class="feature-title">Sürekli Güncel</h3>
-              <p class="feature-desc">
-                Uygulama güncelleme tespit ettiği zaman oto günceleme yapar seni uğraştırmaz.
-              </p>
+              <p class="feature-desc">En son release sürümü ve indirme bağlantısı otomatik çekilir.</p>
             </div>
           </div>
         </div>
@@ -743,49 +681,22 @@
   </div>
 
   <script>
-  const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
-  const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
+    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
+    const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const els = {
-      versionText: document.getElementById("versionText"),
-      buildDate: document.getElementById("buildDate"),
-      releaseStatus: document.getElementById("releaseStatus"),
-      fileType: document.getElementById("fileType"),
-      fileName: document.getElementById("fileName"),
-      versionBadge: document.getElementById("versionBadge"),
-      statusBox: document.getElementById("statusBox"),
-      downloadBtn: document.getElementById("downloadBtn"),
-      footerVersion: document.getElementById("footerVersion"),
-      particles: document.getElementById("particles")
-    };
-
-    function createParticles() {
-      if (!els.particles) return;
-      els.particles.innerHTML = "";
-      const count = window.innerWidth < 768 ? 20 : 36;
-
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement("span");
-        p.className = "particle";
-        p.style.left = Math.random() * 100 + "vw";
-        const size = 2 + Math.random() * 4;
-        p.style.width = size + "px";
-        p.style.height = size + "px";
-        p.style.animationDuration = 7 + Math.random() * 9 + "s";
-        p.style.animationDelay = Math.random() * 8 + "s";
-        p.style.opacity = 0.16 + Math.random() * 0.38;
-        els.particles.appendChild(p);
-      }
+    function byId(id) {
+      return document.getElementById(id);
     }
 
     function setStatus(message, type = "warn", loading = false) {
-      if (!els.statusBox) return;
-      els.statusBox.className = "status-box " + type;
-      els.statusBox.innerHTML = `
-        ${loading ? '<div class="spinner"></div>' : '<div class="dot"></div>'}
-        <span>${message}</span>
-      `;
+      const box = byId("statusBox");
+      if (!box) return;
+      box.className = "status-box " + type;
+      box.innerHTML = (
+        loading
+          ? '<div class="spinner"></div>'
+          : '<span class="dot"></span>'
+      ) + '<span>' + message + '</span>';
     }
 
     function formatDate(dateStr) {
@@ -795,12 +706,35 @@
       const day = String(d.getDate()).padStart(2, "0");
       const month = String(d.getMonth() + 1).padStart(2, "0");
       const year = d.getFullYear();
-      return `${day}.${month}.${year}`;
+      return day + "." + month + "." + year;
     }
 
     function pickExeAsset(assets) {
       if (!Array.isArray(assets)) return null;
-      return assets.find(asset => /\.exe$/i.test(asset.name || "")) || null;
+      for (const asset of assets) {
+        if (/\.exe$/i.test(asset.name || "")) return asset;
+      }
+      return null;
+    }
+
+    function createParticles() {
+      const wrap = byId("particles");
+      if (!wrap) return;
+      wrap.innerHTML = "";
+      const count = window.innerWidth < 768 ? 20 : 36;
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement("span");
+        p.className = "particle";
+        p.style.left = (Math.random() * 100) + "vw";
+        const size = 2 + Math.random() * 4;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.animationDuration = (7 + Math.random() * 9) + "s";
+        p.style.animationDelay = (Math.random() * 8) + "s";
+        p.style.opacity = 0.16 + Math.random() * 0.38;
+        wrap.appendChild(p);
+      }
     }
 
     async function loadLatestRelease() {
@@ -808,6 +742,7 @@
         setStatus("GitHub üzerinden en son sürüm bilgisi alınıyor...", "warn", true);
 
         const response = await fetch(RELEASE_API_URL, {
+          method: "GET",
           headers: { "Accept": "application/vnd.github+json" },
           cache: "no-store"
         });
@@ -820,50 +755,55 @@
         const version = release.tag_name || release.name || "Bilinmiyor";
         const buildDate = formatDate(release.published_at);
         const exeAsset = pickExeAsset(release.assets || []);
-        const downloadUrl = exeAsset?.browser_download_url || release.html_url || RELEASES_PAGE_URL;
-        const fileName = exeAsset?.name || "İndirilebilir .exe bulunamadı";
+        const downloadUrl = exeAsset ? exeAsset.browser_download_url : (release.html_url || RELEASES_PAGE_URL);
+        const fileName = exeAsset ? exeAsset.name : "İndirilebilir .exe bulunamadı";
 
-        if (els.versionText) els.versionText.textContent = version;
-        if (els.buildDate) els.buildDate.textContent = buildDate;
-        if (els.releaseStatus) els.releaseStatus.textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
-        if (els.fileName) els.fileName.textContent = "Dosya: " + fileName;
-        if (els.versionBadge) els.versionBadge.textContent = "Sürüm: " + version;
-        if (els.footerVersion) els.footerVersion.textContent = "Canlı sürüm: " + version;
-        if (els.downloadBtn) {
-          els.downloadBtn.href = downloadUrl;
-          els.downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "Release Sayfasını Aç";
+        if (byId("versionText")) byId("versionText").textContent = version;
+        if (byId("buildDate")) byId("buildDate").textContent = buildDate;
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
+        if (byId("fileType")) byId("fileType").textContent = exeAsset ? ".exe" : "Release";
+        if (byId("fileName")) byId("fileName").textContent = "Dosya: " + fileName;
+        if (byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: " + version;
+        if (byId("footerVersion")) byId("footerVersion").textContent = "Canlı sürüm: " + version;
+
+        const downloadBtn = byId("downloadBtn");
+        if (downloadBtn) {
+          downloadBtn.href = downloadUrl;
+          downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "Release Sayfasını Aç";
         }
-        if (els.fileType) els.fileType.textContent = exeAsset ? ".exe" : "Release";
 
         setStatus(
           exeAsset
             ? "En güncel sürüm başarıyla yüklendi: " + version
-            : "Release bulundu ama .exe dosyası otomatik seçilemedi.",
+            : "Release bulundu ama .exe dosyası seçilemedi.",
           exeAsset ? "ok" : "warn",
           false
         );
       } catch (error) {
         console.error("Release yüklenemedi:", error);
 
-        if (els.versionText) els.versionText.textContent = "Yüklenemedi";
-        if (els.buildDate) els.buildDate.textContent = "Bilinmiyor";
-        if (els.releaseStatus) els.releaseStatus.textContent = "Bağlantı Hatası";
-        if (els.fileType) els.fileType.textContent = "Release";
-        if (els.fileName) els.fileName.textContent = "Dosya: Bilinmiyor";
-        if (els.versionBadge) els.versionBadge.textContent = "Sürüm: Bilinmiyor";
-        if (els.footerVersion) els.footerVersion.textContent = "Release bilgisi alınamadı";
-        if (els.downloadBtn) {
-          els.downloadBtn.href = RELEASES_PAGE_URL;
-          els.downloadBtn.textContent = "Release Sayfasını Aç";
+        if (byId("versionText")) byId("versionText").textContent = "Yüklenemedi";
+        if (byId("buildDate")) byId("buildDate").textContent = "Bilinmiyor";
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = "Bağlantı Hatası";
+        if (byId("fileType")) byId("fileType").textContent = "Release";
+        if (byId("fileName")) byId("fileName").textContent = "Dosya: Bilinmiyor";
+        if (byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: Bilinmiyor";
+        if (byId("footerVersion")) byId("footerVersion").textContent = "Release bilgisi alınamadı";
+
+        const downloadBtn = byId("downloadBtn");
+        if (downloadBtn) {
+          downloadBtn.href = RELEASES_PAGE_URL;
+          downloadBtn.textContent = "Release Sayfasını Aç";
         }
 
         setStatus("GitHub API geçici olarak cevap vermedi. Release sayfası kullanılabilir.", "warn", false);
       }
     }
 
-    createParticles();
-    loadLatestRelease();
-  });
-</script>
+    window.addEventListener("load", function () {
+      createParticles();
+      loadLatestRelease();
+    });
+  </script>
 </body>
 </html>
