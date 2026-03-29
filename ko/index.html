@@ -1,3 +1,125 @@
+Skip to content
+dates1905
+atesoyunarsivi
+Repository navigation
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Files
+Go to file
+t
+ko content loaded
+assets
+es
+ja
+ko
+index.html
+apple-touch-icon.png
+background.jpg
+favicon-48x48.png
+favicon.ico
+galeri1.jpg
+galeri2.jpg
+google6d7c344015cfa744.html
+icon.ico
+index.html
+launcher.jpg
+logo.png
+robots.txt
+sitemap-root.xml
+sitemap.xml
+atesoyunarsivi/ko
+/
+index.html
+in
+main
+
+Edit
+
+Preview
+Indent mode
+
+Spaces
+Indent size
+
+2
+Line wrap mode
+
+No wrap
+Editing index.html file contents
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -65,917 +187,6 @@
       },
       "image": "https://dates1905.github.io/atesoyunarsivi/logo.png"
     }
-  ]
-}
-</script>
-
-<link rel="stylesheet" href="style.css" />
-
-  <style>
-    * { box-sizing: border-box; }
-
-    :root {
-      --bg: #070b12;
-      --bg-soft: #0c1220;
-      --card: rgba(14, 19, 32, 0.82);
-      --line: rgba(255,255,255,0.09);
-      --text: #eef3ff;
-      --muted: #98a8c3;
-      --accent: #ff6b1a;
-      --accent-2: #ff2f6d;
-      --green: #1fc97a;
-      --shadow: 0 30px 80px rgba(0,0,0,0.42);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --max: 1240px;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(255,107,26,0.18), transparent 26%),
-        radial-gradient(circle at 90% 10%, rgba(255,47,109,0.16), transparent 24%),
-        linear-gradient(135deg, #05070c 0%, #0b111b 45%, #0b0f17 100%);
-      color: var(--text);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .bg-blur {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .bg-blur::before,
-    .bg-blur::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(110px);
-      opacity: 0.2;
-      animation: floatBlob 12s ease-in-out infinite;
-    }
-
-    .bg-blur::before {
-      width: 34vw;
-      height: 34vw;
-      left: -10vw;
-      top: -6vw;
-      background: #ff6b1a;
-    }
-
-    .bg-blur::after {
-      width: 30vw;
-      height: 30vw;
-      right: -8vw;
-      bottom: -10vw;
-      background: #ff2f6d;
-      animation-duration: 14s;
-    }
-
-    @keyframes floatBlob {
-      0%, 100% { transform: translate(0, 0); }
-      50% { transform: translate(20px, 24px); }
-    }
-
-    .particles {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      bottom: -20px;
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ff8a3d, #ff2f6d);
-      opacity: 0.45;
-      animation: rise linear infinite;
-    }
-
-    @keyframes rise {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      10% { opacity: 0.45; }
-      to {
-        transform: translateY(-110vh) scale(0.6);
-        opacity: 0;
-      }
-    }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(16px);
-      background: rgba(7, 11, 18, 0.58);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .topbar-inner {
-      height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      overflow: hidden;
-      padding: 6px;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
-
-    .brand-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 3px;
-      white-space: nowrap;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .mini-badge {
-      min-height: 40px;
-      padding: 0 14px;
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: #c9d6ec;
-      font-size: 13px;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 12px rgba(255,107,26,0.7);
-      flex: 0 0 auto;
-    }
-
-    .hero {
-      padding: 40px 0 26px;
-    }
-
-    .hero-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
-        rgba(13, 17, 27, 0.78);
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      min-height: 650px;
-    }
-
-    .hero-left {
-      padding: 52px 46px 42px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      min-height: 42px;
-      padding: 0 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.045);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: #ffe0cf;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -2.5px;
-      font-weight: 900;
-    }
-
-    .hero-title .accent {
-      background: linear-gradient(135deg, #ffb167, #ff6b1a, #ff2f6d);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
-    }
-
-    .hero-desc {
-      margin: 22px 0 28px;
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .btn {
-      min-height: 56px;
-      padding: 0 22px;
-      border-radius: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 15px;
-      border: 1px solid transparent;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      box-shadow: 0 16px 34px rgba(255, 107, 26, 0.28);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      border-color: rgba(255,255,255,0.08);
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .stat {
-      padding: 16px 16px 15px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.06);
-      min-height: 94px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #8ea0bc;
-      margin-bottom: 10px;
-    }
-
-    .stat-value {
-      font-size: 22px;
-      font-weight: 800;
-      word-break: break-word;
-    }
-
-   .hero-right {
-  position: relative;
-  min-height: 650px;
-  background:
-    linear-gradient(90deg, rgba(7,11,18,0.3), rgba(7,11,18,0.6)),
-    url("launcher.jpg?v=3") center center no-repeat;
-  background-size: contain;
-  background-color: #0b0f17;
-}
-
-    @media (max-width: 768px) {
-  .hero-right {
-    background-size: contain;
-    min-height: 300px;
-  }
-}
-
-    .hero-right::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 70% 25%, rgba(255,107,26,0.12), transparent 18%),
-        radial-gradient(circle at 88% 15%, rgba(255,47,109,0.12), transparent 22%);
-    }
-
-    .floating-panel {
-      position: absolute;
-      right: 24px;
-      bottom: 24px;
-      width: min(360px, calc(100% - 48px));
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(7, 11, 18, 0.76);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 18px 44px rgba(0,0,0,0.34);
-    }
-
-    .floating-title {
-      font-size: 14px;
-      color: #ffd9c6;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-
-    .file-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .pill {
-      min-height: 40px;
-      padding: 0 14px;
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #d0ddf0;
-      font-size: 13px;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .status-box {
-      margin-top: 14px;
-      min-height: 58px;
-      border-radius: 16px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      line-height: 1.6;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: #dce6f5;
-    }
-
-    .status-box.ok {
-      background: rgba(31, 201, 122, 0.11);
-      border-color: rgba(31, 201, 122, 0.34);
-      color: #dbffec;
-    }
-
-    .status-box.warn {
-      background: rgba(255, 107, 26, 0.10);
-      border-color: rgba(255, 107, 26, 0.26);
-      color: #ffe6d7;
-    }
-
-    .spinner {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      border: 2px solid rgba(255,255,255,0.24);
-      border-top-color: #fff;
-      animation: spin .9s linear infinite;
-      flex: 0 0 auto;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .section { padding: 0 0 34px; }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .feature-card {
-      border-radius: 24px;
-      padding: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
-        rgba(12,18,30,0.72);
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
-    }
-
-    .feature-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-      background: linear-gradient(135deg, rgba(255,107,26,0.18), rgba(255,47,109,0.16));
-      border: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 16px;
-    }
-
-    .feature-title {
-      margin: 0 0 10px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .feature-desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .footer {
-      padding: 8px 0 42px;
-      color: #91a2bc;
-      font-size: 14px;
-    }
-
-    .footer-box {
-      border-radius: 20px;
-      padding: 18px 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1120px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-right { min-height: 420px; order: -1; }
-      .hero-left { padding: 34px 24px 26px; }
-      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .section-grid { grid-template-columns: 1fr; }
-    }
-
-    
-    .language-badge {
-      gap: 10px;
-      padding-right: 10px;
-      flex-wrap: wrap;
-    }
-
-    .lang-label {
-      font-weight: 700;
-      color: #eef3ff;
-      white-space: nowrap;
-    }
-
-    .lang-links {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .lang-item {
-      min-height: 32px;
-      padding: 0 10px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .lang-item:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.08);
-    }
-
-    .lang-item.active {
-      background: linear-gradient(135deg, rgba(255,107,26,0.22), rgba(255,47,109,0.18));
-      border-color: rgba(255,107,26,0.5);
-    }
-
-    .flag {
-      font-size: 15px;
-      line-height: 1;
-    }
-
-    .lang-text {
-      letter-spacing: 0.3px;
-    }
-
-
-    @media (max-width: 700px) {
-      .container { width: min(var(--max), calc(100% - 20px)); }
-      .topbar-inner {
-        height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .hero { padding-top: 18px; }
-      .hero-title { letter-spacing: -1.4px; }
-      .hero-desc { font-size: 16px; }
-      .hero-actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .stats { grid-template-columns: 1fr; }
-      .hero-right { min-height: 320px; }
-      .floating-panel {
-        right: 14px;
-        bottom: 14px;
-        width: calc(100% - 28px);
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div style="position:absolute; left:-9999px;">
-  <h1>ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher</h1>
-  <h2>Steam, Epic ve tüm oyunlarını tek yerden başlat</h2>
-</div>
-
-  <div class="bg-blur"></div>
-  <div class="particles" id="particles"></div>
-
-  <div class="wrap">
-    <header class="topbar">
-      <div class="container topbar-inner">
-        <div class="brand">
-  <div class="brand-logo">
-    <img src="logo.png?v=4" alt="ATEŞ Oyun Arşivi logo" />
-  </div>
-          <div>
-            <div class="brand-title">ATEŞ Oyun Arşivi</div>
-            <div class="brand-sub">스마트 런처와 현대적인 게임 라이브러리</div>
-          </div>
-        </div>
-
-        <div class="nav-actions">
-        <div class="mini-badge language-badge">
-          <span class="lang-label">언어:</span>
-          <div class="lang-links">
-            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
-              <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
-            </a>
-            <a class="lang-item" class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
-              <span class="flag">🇰🇷</span><span class="lang-text">KO</span>
-            </a>
-            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語">
-              <span class="flag">🇯🇵</span><span class="lang-text">JA</span>
-            </a>
-            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español">
-              <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
-            </a>
-          </div>
-        </div>
-          <div class="mini-badge">
-            <span class="dot"></span>
-            최신 버전을 자동으로 가져옵니다
-          </div>
-          <a class="mini-badge" href="https://github.com/dates1905/atesoyunarsivi/releases" target="_blank" rel="noopener noreferrer">
-            GitHub 릴리스
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero-card">
-            <div class="hero-grid">
-              <div class="hero-left">
-                <div class="eyebrow">
-                  <span class="dot"></span>
-                  모든 게임을 한 곳에서 관리하세요
-                </div>
-
-<div class="hero-title">
-  <span class="accent">ATEŞ</span><br />
-  Oyun Arşivi
-</div>
-                
-                <p class="hero-desc">
-                  게임을 한곳에 모으고, 커버로 정리하고, 빠르게 실행하여 강력한 데스크톱 런처 경험으로 바꿔보세요.
-                </p>
-
-                <div class="hero-actions">
-                  <a
-                    id="downloadBtn"
-                    class="btn btn-primary"
-                    href="https://github.com/dates1905/atesoyunarsivi/releases"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    설치 파일 다운로드
-                  </a>
-
-                  <a
-                    id="appxBtn"
-                    class="btn btn-secondary"
-                    href="https://github.com/dates1905/atesoyunarsivi/releases/download/v1.0.17/ATES_OYUN_ARSIVI_1.0.17.appx"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Microsoft 패키지 (.appx)
-                  </a>
-                </div>
-
-                
-
-                <div class="stats">
-                  <div class="stat">
-                    <div class="stat-label">버전</div>
-                    <div class="stat-value" id="versionText">불러오는 중...</div>
-                  </div>
-
-                  <div class="stat">
-                    <div class="stat-label">빌드</div>
-                    <div class="stat-value" id="buildDate">불러오는 중...</div>
-                  </div>
-
-                  <div class="stat">
-                    <div class="stat-label">상태</div>
-                    <div class="stat-value" id="releaseStatus">확인 중...</div>
-                  </div>
-
-                  <div class="stat">
-                    <div class="stat-label">설치</div>
-                    <div class="stat-value" id="fileType">.exe</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hero-right">
-                <div class="floating-panel">
-                  <div class="floating-title">실시간 릴리스 정보</div>
-                  <div class="file-row">
-                    <div class="pill" id="fileName">파일: 불러오는 중...</div>
-                    <div class="pill" id="versionBadge">버전: 불러오는 중...</div>
-                  </div>
-                  <div class="status-box warn" id="statusBox">
-                    <div class="spinner"></div>
-                    <span>GitHub에서 최신 릴리스 정보를 가져오는 중...</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="section-grid">
-            <div class="feature-card">
-              <div class="feature-icon">🚀</div>
-              <h3 class="feature-title">스마트 실행</h3>
-              <p class="feature-desc">Steam, Epic, Rockstar 및 일반 exe/lnk 구조와 호환되는 실용적인 실행 시스템입니다.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">🖼️</div>
-              <h3 class="feature-title">커버와 정리</h3>
-              <p class="feature-desc">게임 카드, 커버, 정렬 및 개인 아카이브 구성을 현대적인 모습으로 제공합니다.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">⚙️</div>
-              <h3 class="feature-title">항상 최신 상태</h3>
-              <p class="feature-desc">최신 릴리스 버전과 다운로드 링크를 자동으로 가져옵니다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-box">
-          <div>ATEŞ 게임 아카이브 • 현대적인 런처 경험</div>
-          <div id="footerVersion">Sürüm bilgisi yükleniyor...</div>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/atesoyunarsivi/releases/latest";
-    const RELEASES_PAGE_URL = "https://github.com/dates1905/atesoyunarsivi/releases";
-
-    function byId(id) {
-      return document.getElementById(id);
-    }
-
-    function setStatus(message, type = "warn", loading = false) {
-      const box = byId("statusBox");
-      if (!box) return;
-      box.className = "status-box " + type;
-      box.innerHTML = (
-        loading
-          ? '<div class="spinner"></div>'
-          : '<span class="dot"></span>'
-      ) + '<span>' + message + '</span>';
-    }
-
-    function formatDate(dateStr) {
-      if (!dateStr) return "알 수 없음";
-      const d = new Date(dateStr);
-      if (Number.isNaN(d.getTime())) return "알 수 없음";
-      const day = String(d.getDate()).padStart(2, "0");
-      const month = String(d.getMonth() + 1).padStart(2, "0");
-      const year = d.getFullYear();
-      return day + "." + month + "." + year;
-    }
-
-    function pickExeAsset(assets) {
-      if (!Array.isArray(assets)) return null;
-      for (const asset of assets) {
-        if (/\.exe$/i.test(asset.name || "")) return asset;
-      }
-      return null;
-    }
-
-    function pickAppxAsset(assets) {
-      if (!Array.isArray(assets)) return null;
-      for (const asset of assets) {
-        if (/\.appx$/i.test(asset.name || "")) return asset;
-      }
-      return null;
-    }
-
-    function createParticles() {
-      const wrap = byId("particles");
-      if (!wrap) return;
-      wrap.innerHTML = "";
-      const count = window.innerWidth < 768 ? 20 : 36;
-
-      for (let i = 0; i < count; i++) {
-        const p = document.createElement("span");
-        p.className = "particle";
-        p.style.left = (Math.random() * 100) + "vw";
-        const size = 2 + Math.random() * 4;
-        p.style.width = size + "px";
-        p.style.height = size + "px";
-        p.style.animationDuration = (7 + Math.random() * 9) + "s";
-        p.style.animationDelay = (Math.random() * 8) + "s";
-        p.style.opacity = 0.16 + Math.random() * 0.38;
-        wrap.appendChild(p);
-      }
-    }
-
-    async function loadLatest릴리스() {
-      try {
-        setStatus("GitHub에서 최신 릴리스 정보를 가져오는 중...", "warn", true);
-
-        const response = await fetch(RELEASE_API_URL, {
-          method: "GET",
-          headers: { "Accept": "application/vnd.github+json" },
-          cache: "no-store"
-        });
-
-        if (!response.ok) {
-          throw new Error("GitHub API hatası: " + response.status);
-        }
-
-        const release = await response.json();
-        const version = release.tag_name || release.name || "알 수 없음";
-        const buildDate = formatDate(release.published_at);
-        const exeAsset = pickExeAsset(release.assets || []);
-        const appxAsset = pickAppxAsset(release.assets || []);
-        const downloadUrl = exeAsset ? exeAsset.browser_download_url : (release.html_url || RELEASES_PAGE_URL);
-        const fileName = exeAsset ? exeAsset.name : "다운로드 가능한 .exe를 찾지 못했습니다";
-
-        if (byId("versionText")) byId("versionText").textContent = version;
-        if (byId("buildDate")) byId("buildDate").textContent = buildDate;
-        if (byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "사전 릴리스" : "배포 중";
-        if (byId("fileType")) byId("fileType").textContent = exeAsset ? ".exe" : "릴리스";
-        if (byId("fileName")) byId("fileName").textContent = "파일: " + fileName;
-        if (byId("versionBadge")) byId("versionBadge").textContent = "버전: " + version;
-        if (byId("footerVersion")) byId("footerVersion").textContent = "실시간 버전: " + version;
-
-        const downloadBtn = byId("downloadBtn");
-        if (downloadBtn) {
-          downloadBtn.href = downloadUrl;
-          downloadBtn.textContent = exeAsset ? "설치 파일 다운로드" : "릴리스 페이지 열기";
-        }
-
-        const appxBtn = byId("appxBtn");
-        if (appxBtn) {
-          appxBtn.href = appxAsset ? appxAsset.browser_download_url : RELEASES_PAGE_URL;
-          appxBtn.textContent = appxAsset ? "Microsoft 패키지 (.appx)" : "Microsoft 패키지";
-        }
-
-        setStatus(
-          exeAsset
-            ? "최신 버전이 성공적으로 로드되었습니다: " + version
-            : "릴리스는 찾았지만 다운로드 가능한 .exe를 찾지 못했습니다.",
-          exeAsset ? "ok" : "warn",
-          false
-        );
-      } catch (error) {
-        console.error("릴리스 yüklenemedi:", error);
-
-        if (byId("versionText")) byId("versionText").textContent = "알 수 없음";
-        if (byId("buildDate")) byId("buildDate").textContent = "알 수 없음";
-        if (byId("releaseStatus")) byId("releaseStatus").textContent = "연결 오류";
-        if (byId("fileType")) byId("fileType").textContent = "릴리스";
-        if (byId("fileName")) byId("fileName").textContent = "파일: 알 수 없음";
-        if (byId("versionBadge")) byId("versionBadge").textContent = "버전: 알 수 없음";
-        if (byId("footerVersion")) byId("footerVersion").textContent = "릴리스 bilgisi alınamadı";
-
-        const downloadBtn = byId("downloadBtn");
-        if (downloadBtn) {
-          downloadBtn.href = RELEASES_PAGE_URL;
-          downloadBtn.textContent = "릴리스 페이지 열기";
-        }
-
-        const appxBtn = byId("appxBtn");
-        if (appxBtn) {
-          appxBtn.href = RELEASES_PAGE_URL;
-          appxBtn.textContent = "Microsoft 패키지";
-        }
-
-        setStatus("GitHub API geçici olarak cevap vermedi. 릴리스 sayfası kullanılabilir.", "warn", false);
-      }
-    }
-
-    window.addEventListener("load", function () {
-      createParticles();
-      loadLatest릴리스();
-    });
-  </script>
-</body>
-</html>
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+ 
+ko content loaded
