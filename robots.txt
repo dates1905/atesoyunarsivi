@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://dates1905.github.io/atesoyunarsivi/sitemap.xml
