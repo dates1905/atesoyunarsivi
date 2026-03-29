@@ -436,6 +436,10 @@
       position: absolute;
       right: 24px;
       bottom: 24px;
+      top: auto;
+      left: auto;
+      transform: none !important;
+      z-index: 2;
       width: min(360px, calc(100% - 48px));
       padding: 18px;
       border-radius: 22px;
@@ -1024,7 +1028,7 @@
       }
 
       function setInteractiveTargets() {
-        document.querySelectorAll(".btn, .feature-card, .stat, .floating-panel, .mini-badge, .lang-item").forEach((el) => {
+        document.querySelectorAll(".btn, .feature-card, .stat, .mini-badge, .lang-item").forEach((el) => {
           el.classList.add("interactive-hover", "lift");
           el.addEventListener("mousemove", (event) => {
             const rect = el.getBoundingClientRect();
