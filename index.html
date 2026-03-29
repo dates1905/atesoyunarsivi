@@ -8,11 +8,16 @@
 <title>Oyun Launcher İndir (Ücretsiz) – ATEŞ Oyun Arşivi | Steam, Epic, Rockstar Tek Program</title>
 
 <meta name="description" content="ATEŞ Oyun Arşivi ile Steam, Epic ve tüm oyunlarını tek yerde topla. Ücretsiz oyun launcher indir, hızlı başlat ve modern arşiv deneyimi yaşa.">
-<meta name="keywords" content="ateş oyun arşivi, ates oyun arşivi, oyun launcher, ücretsiz oyun launcher, pc oyun launcher, masaüstü oyun launcher, steam epic rockstar launcher">
+<meta name="keywords" content="ATEŞ Oyun Arşivi, game launcher, free game launcher, Steam, Epic, Rockstar">
 <meta name="author" content="ATEŞ Oyun Arşivi">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <link rel="canonical" href="https://dates1905.github.io/atesoyunarsivi/">
+<link rel="alternate" hreflang="tr" href="https://dates1905.github.io/atesoyunarsivi/">
+<link rel="alternate" hreflang="ko" href="https://dates1905.github.io/atesoyunarsivi/ko/">
+<link rel="alternate" hreflang="ja" href="https://dates1905.github.io/atesoyunarsivi/ja/">
+<link rel="alternate" hreflang="es" href="https://dates1905.github.io/atesoyunarsivi/es/">
+<link rel="alternate" hreflang="x-default" href="https://dates1905.github.io/atesoyunarsivi/">
 
 <!-- Favicon -->
 <link rel="icon" href="https://dates1905.github.io/atesoyunarsivi/favicon.ico" sizes="any">
@@ -33,7 +38,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher">
-<meta name="twitter:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla.">
+<meta name="twitter:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla. Hızlı, modern ve ücretsiz oyun launcher.">
 <meta name="twitter:image" content="https://dates1905.github.io/atesoyunarsivi/logo.png">
 
 <!-- Site name + organization -->
@@ -576,6 +581,61 @@
       .section-grid { grid-template-columns: 1fr; }
     }
 
+    
+    .language-badge {
+      gap: 10px;
+      padding-right: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-label {
+      font-weight: 700;
+      color: #eef3ff;
+      white-space: nowrap;
+    }
+
+    .lang-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-item {
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .lang-item:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lang-item.active {
+      background: linear-gradient(135deg, rgba(255,107,26,0.22), rgba(255,47,109,0.18));
+      border-color: rgba(255,107,26,0.5);
+    }
+
+    .flag {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .lang-text {
+      letter-spacing: 0.3px;
+    }
+
+
     @media (max-width: 700px) {
       .container { width: min(var(--max), calc(100% - 20px)); }
       .topbar-inner {
@@ -614,7 +674,7 @@
       <div class="container topbar-inner">
         <div class="brand">
   <div class="brand-logo">
-    <img src="logo.png?v=4" alt="ATEŞ Oyun Arşivi oyun launcher logosu" />
+    <img src="logo.png?v=4" alt="ATEŞ Oyun Arşivi logo" />
   </div>
           <div>
             <div class="brand-title">ATEŞ Oyun Arşivi</div>
@@ -623,6 +683,23 @@
         </div>
 
         <div class="nav-actions">
+        <div class="mini-badge language-badge">
+          <span class="lang-label">Diller:</span>
+          <div class="lang-links">
+            <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
+              <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
+              <span class="flag">🇰🇷</span><span class="lang-text">KO</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語">
+              <span class="flag">🇯🇵</span><span class="lang-text">JA</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español">
+              <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
+            </a>
+          </div>
+        </div>
           <div class="mini-badge">
             <span class="dot"></span>
             En son sürüm otomatik çekiliyor
