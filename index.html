@@ -657,9 +657,110 @@
         width: calc(100% - 28px);
       }
     }
+  
+    .cursor-glow,
+    .cursor-core {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity .25s ease;
+      mix-blend-mode: screen;
+    }
+
+    .cursor-glow {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,107,26,0.22) 0%, rgba(255,47,109,0.14) 35%, rgba(255,107,26,0.06) 52%, rgba(255,107,26,0) 72%);
+      filter: blur(10px);
+    }
+
+    .cursor-core {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,182,120,0.9) 34%, rgba(255,107,26,0.18) 70%, rgba(255,107,26,0) 100%);
+      box-shadow:
+        0 0 16px rgba(255,107,26,0.55),
+        0 0 34px rgba(255,47,109,0.25);
+    }
+
+    .cursor-trail {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.6);
+      background: linear-gradient(135deg, rgba(255,190,120,0.95), rgba(255,47,109,0.65));
+      box-shadow: 0 0 12px rgba(255,107,26,0.35);
+      will-change: transform, opacity;
+    }
+
+    .cursor-active .cursor-glow,
+    .cursor-active .cursor-core,
+    .cursor-active .cursor-trail {
+      opacity: 1;
+    }
+
+    .interactive-hover {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-hover::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.16), rgba(255,255,255,0) 32%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+
+    .interactive-hover:hover::after {
+      opacity: 1;
+    }
+
+    .interactive-hover.lift {
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+
+    .interactive-hover.lift:hover {
+      box-shadow: 0 22px 50px rgba(0,0,0,0.28);
+    }
+
+    @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+      .cursor-glow,
+      .cursor-core,
+      .cursor-trail {
+        display: none !important;
+      }
+      .interactive-hover,
+      .interactive-hover.lift {
+        transform: none !important;
+      }
+    }
+
   </style>
 </head>
 <body>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="cursor-core" id="cursorCore" aria-hidden="true"></div>
+
 
   <div style="position:absolute; left:-9999px;">
   <h1>ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher</h1>
@@ -889,6 +990,118 @@
       }
     }
 
+
+    function setupImmersiveCursor() {
+      if (window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      const glow = byId("cursorGlow");
+      const core = byId("cursorCore");
+      if (!glow || !core) return;
+
+      const trailCount = 10;
+      const trails = [];
+      const pointer = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+        tx: window.innerWidth / 2,
+        ty: window.innerHeight / 2
+      };
+
+      document.body.classList.add("cursor-active");
+
+      for (let i = 0; i < trailCount; i++) {
+        const dot = document.createElement("div");
+        dot.className = "cursor-trail";
+        dot.style.opacity = String(Math.max(0.08, 0.34 - i * 0.028));
+        document.body.appendChild(dot);
+        trails.push({
+          el: dot,
+          x: pointer.x,
+          y: pointer.y
+        });
+      }
+
+      function setInteractiveTargets() {
+        document.querySelectorAll(".btn, .feature-card, .stat, .floating-panel, .mini-badge, .lang-item").forEach((el) => {
+          el.classList.add("interactive-hover", "lift");
+          el.addEventListener("mousemove", (event) => {
+            const rect = el.getBoundingClientRect();
+            const px = ((event.clientX - rect.left) / rect.width) * 100;
+            const py = ((event.clientY - rect.top) / rect.height) * 100;
+            el.style.setProperty("--mx", px.toFixed(2) + "%");
+            el.style.setProperty("--my", py.toFixed(2) + "%");
+          });
+
+          el.addEventListener("mouseenter", () => {
+            core.style.transform = "translate(-50%, -50%) scale(1.25)";
+            glow.style.transform = "translate(-50%, -50%) scale(1.08)";
+          });
+
+          el.addEventListener("mouseleave", () => {
+            core.style.transform = "translate(-50%, -50%) scale(1)";
+            glow.style.transform = "translate(-50%, -50%) scale(1)";
+            el.style.transform = "";
+          });
+
+          el.addEventListener("mousemove", (event) => {
+            const rect = el.getBoundingClientRect();
+            const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+            const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+            const moveX = offsetX * 8;
+            const moveY = offsetY * 8;
+            el.style.transform = "translate(" + moveX.toFixed(2) + "px, " + moveY.toFixed(2) + "px)";
+          });
+        });
+      }
+
+      setInteractiveTargets();
+
+      window.addEventListener("mousemove", (event) => {
+        pointer.tx = event.clientX;
+        pointer.ty = event.clientY;
+      }, { passive: true });
+
+      window.addEventListener("mouseout", (event) => {
+        if (!event.relatedTarget) {
+          document.body.classList.remove("cursor-active");
+        }
+      });
+
+      window.addEventListener("mouseover", () => {
+        document.body.classList.add("cursor-active");
+      });
+
+      function animate() {
+        pointer.x += (pointer.tx - pointer.x) * 0.18;
+        pointer.y += (pointer.ty - pointer.y) * 0.18;
+
+        glow.style.left = pointer.x + "px";
+        glow.style.top = pointer.y + "px";
+        core.style.left = pointer.x + "px";
+        core.style.top = pointer.y + "px";
+
+        let prevX = pointer.x;
+        let prevY = pointer.y;
+
+        trails.forEach((trail, index) => {
+          trail.x += (prevX - trail.x) * (0.22 - index * 0.012);
+          trail.y += (prevY - trail.y) * (0.22 - index * 0.012);
+          trail.el.style.left = trail.x + "px";
+          trail.el.style.top = trail.y + "px";
+          trail.el.style.transform = "translate(-50%, -50%) scale(" + (1 - index * 0.055).toFixed(2) + ")";
+          prevX = trail.x;
+          prevY = trail.y;
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+
     async function loadLatestRelease() {
       try {
         setStatus("GitHub üzerinden en son sürüm bilgisi alınıyor...", "warn", true);
@@ -955,6 +1168,7 @@
     window.addEventListener("load", function () {
       createParticles();
       loadLatestRelease();
+      setupImmersiveCursor();
     });
   </script>
 </body>
