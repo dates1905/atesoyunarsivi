@@ -8,15 +8,15 @@
 <title>무료 게임 런처 다운로드 – ATEŞ Game Library | Steam, Epic, Rockstar</title>
 
 <meta name="description" content="ATEŞ Game Library로 Steam, Epic, Rockstar 게임을 한곳에서 실행하세요. PC용 무료 게임 런처입니다.">
-<meta name="keywords" content="ATEŞ Game Library, free game launcher, PC game launcher, Steam Epic Rockstar launcher, ko">
+<meta name="keywords" content="ATEŞ Game Library, game launcher, free game launcher, Steam, Epic, Rockstar">
 <meta name="author" content="ATEŞ Game Library">
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <link rel="canonical" href="https://dates1905.github.io/atesoyunarsivi/ko/">
 <link rel="alternate" hreflang="tr" href="https://dates1905.github.io/atesoyunarsivi/">
+<link rel="alternate" hreflang="ko" href="https://dates1905.github.io/atesoyunarsivi/ko/">
 <link rel="alternate" hreflang="ja" href="https://dates1905.github.io/atesoyunarsivi/ja/">
 <link rel="alternate" hreflang="es" href="https://dates1905.github.io/atesoyunarsivi/es/">
-<link rel="alternate" hreflang="ko" href="https://dates1905.github.io/atesoyunarsivi/ko/">
 <link rel="alternate" hreflang="x-default" href="https://dates1905.github.io/atesoyunarsivi/">
 
 <!-- Favicon -->
@@ -581,6 +581,61 @@
       .section-grid { grid-template-columns: 1fr; }
     }
 
+    
+    .language-badge {
+      gap: 10px;
+      padding-right: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-label {
+      font-weight: 700;
+      color: #eef3ff;
+      white-space: nowrap;
+    }
+
+    .lang-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-item {
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .lang-item:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lang-item.active {
+      background: linear-gradient(135deg, rgba(255,107,26,0.22), rgba(255,47,109,0.18));
+      border-color: rgba(255,107,26,0.5);
+    }
+
+    .flag {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .lang-text {
+      letter-spacing: 0.3px;
+    }
+
+
     @media (max-width: 700px) {
       .container { width: min(var(--max), calc(100% - 20px)); }
       .topbar-inner {
@@ -628,12 +683,29 @@
         </div>
 
         <div class="nav-actions">
+        <div class="mini-badge language-badge">
+          <span class="lang-label">언어:</span>
+          <div class="lang-links">
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
+              <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
+            </a>
+            <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
+              <span class="flag">🇰🇷</span><span class="lang-text">KO</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語">
+              <span class="flag">🇯🇵</span><span class="lang-text">JA</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español">
+              <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
+            </a>
+          </div>
+        </div>
           <div class="mini-badge">
             <span class="dot"></span>
             최신 버전을 자동으로 불러오는 중
           </div>
           <a class="mini-badge" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases" target="_blank" rel="noopener noreferrer">
-            GitHub Release
+            GitHub Releases
           </a>
         </div>
       </div>
@@ -651,7 +723,8 @@
                 </div>
 
 <div class="hero-title">
-  <span class="accent">ATEŞ</span><br />Game Library
+  <span class="accent">ATEŞ</span><br />
+  Game Library
 </div>
                 
                 <p class="hero-desc">
@@ -681,22 +754,22 @@
 
                 <div class="stats">
                   <div class="stat">
-                    <div class="stat-label">Sürüm</div>
-                    <div class="stat-value" id="versionText">Loading...</div>
+                    <div class="stat-label">버전</div>
+                    <div class="stat-value" id="versionText">불러오는 중...</div>
                   </div>
 
                   <div class="stat">
-                    <div class="stat-label">Build</div>
-                    <div class="stat-value" id="buildDate">Loading...</div>
+                    <div class="stat-label">빌드</div>
+                    <div class="stat-value" id="buildDate">불러오는 중...</div>
                   </div>
 
                   <div class="stat">
-                    <div class="stat-label">Durum</div>
+                    <div class="stat-label">상태</div>
                     <div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div>
                   </div>
 
                   <div class="stat">
-                    <div class="stat-label">Kurulum</div>
+                    <div class="stat-label">설치</div>
                     <div class="stat-value" id="fileType">.exe</div>
                   </div>
                 </div>
@@ -706,8 +779,8 @@
                 <div class="floating-panel">
                   <div class="floating-title">실시간 릴리스 정보</div>
                   <div class="file-row">
-                    <div class="pill" id="fileName">File: loading...</div>
-                    <div class="pill" id="versionBadge">Version: loading...</div>
+                    <div class="pill" id="fileName">파일: 불러오는 중...</div>
+                    <div class="pill" id="versionBadge">버전: 불러오는 중...</div>
                   </div>
                   <div class="status-box warn" id="statusBox">
                     <div class="spinner"></div>
@@ -749,7 +822,7 @@
       <div class="container">
         <div class="footer-box">
           <div>ATEŞ Game Library • 현대적인 런처 경험</div>
-          <div id="footerVersion">Loading version info...</div>
+          <div id="footerVersion">버전 정보를 불러오는 중...</div>
         </div>
       </div>
     </footer>
@@ -775,9 +848,9 @@
     }
 
     function formatDate(dateStr) {
-      if (!dateStr) return "Unknown";
+      if (!dateStr) return "알 수 없음";
       const d = new Date(dateStr);
-      if (Number.isNaN(d.getTime())) return "Unknown";
+      if (Number.isNaN(d.getTime())) return "알 수 없음";
       const day = String(d.getDate()).padStart(2, "0");
       const month = String(d.getMonth() + 1).padStart(2, "0");
       const year = d.getFullYear();
@@ -823,34 +896,34 @@
         });
 
         if (!response.ok) {
-          throw new Error("GitHub API error: " + response.status);
+          throw new Error("GitHub API 오류: " + response.status);
         }
 
         const release = await response.json();
-        const version = release.tag_name || release.name || "Unknown";
+        const version = release.tag_name || release.name || "알 수 없음";
         const buildDate = formatDate(release.published_at);
         const exeAsset = pickExeAsset(release.assets || []);
         const downloadUrl = exeAsset ? exeAsset.browser_download_url : (release.html_url || RELEASES_PAGE_URL);
-        const fileName = exeAsset ? exeAsset.name : "Downloadable .exe not found";
+        const fileName = exeAsset ? exeAsset.name : "다운로드 가능한 .exe를 찾을 수 없습니다";
 
         if (byId("versionText")) byId("versionText").textContent = version;
         if (byId("buildDate")) byId("buildDate").textContent = buildDate;
-        if (byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "Prerelease" : "Published";
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "사전 릴리스" : "배포 중";
         if (byId("fileType")) byId("fileType").textContent = exeAsset ? ".exe" : "Release";
         if (byId("fileName")) byId("fileName").textContent = "Dosya: " + fileName;
         if (byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: " + version;
-        if (byId("footerVersion")) byId("footerVersion").textContent = "Live version: " + version;
+        if (byId("footerVersion")) byId("footerVersion").textContent = "실시간 버전: " + version;
 
         const downloadBtn = byId("downloadBtn");
         if (downloadBtn) {
           downloadBtn.href = downloadUrl;
-          downloadBtn.textContent = exeAsset ? "설치 파일 다운로드" : "Open Release Page";
+          downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "릴리스 페이지 열기";
         }
 
         setStatus(
           exeAsset
-            ? "Latest version loaded successfully: " + version
-            : "Release found but no .exe asset was selected.",
+            ? "최신 버전을 성공적으로 불러왔습니다: " + version
+            : "릴리스는 찾았지만 .exe 파일을 선택하지 못했습니다.",
           exeAsset ? "ok" : "warn",
           false
         );
@@ -858,20 +931,20 @@
         console.error("Release yüklenemedi:", error);
 
         if (byId("versionText")) byId("versionText").textContent = "Yüklenemedi";
-        if (byId("buildDate")) byId("buildDate").textContent = "Unknown";
-        if (byId("releaseStatus")) byId("releaseStatus").textContent = "Connection Error";
+        if (byId("buildDate")) byId("buildDate").textContent = "알 수 없음";
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = "연결 오류";
         if (byId("fileType")) byId("fileType").textContent = "Release";
-        if (byId("fileName")) byId("fileName").textContent = "File: Unknown";
-        if (byId("versionBadge")) byId("versionBadge").textContent = "Version: Unknown";
-        if (byId("footerVersion")) byId("footerVersion").textContent = "Release info unavailable";
+        if (byId("fileName")) byId("fileName").textContent = "파일: 알 수 없음";
+        if (byId("versionBadge")) byId("versionBadge").textContent = "버전: 알 수 없음";
+        if (byId("footerVersion")) byId("footerVersion").textContent = "릴리스 정보를 가져올 수 없습니다";
 
         const downloadBtn = byId("downloadBtn");
         if (downloadBtn) {
           downloadBtn.href = RELEASES_PAGE_URL;
-          downloadBtn.textContent = "Open Release Page";
+          downloadBtn.textContent = "릴리스 페이지 열기";
         }
 
-        setStatus("GitHub API did not respond temporarily. The release page is still available.", "warn", false);
+        setStatus("GitHub API가 일시적으로 응답하지 않았습니다. 릴리스 페이지는 사용할 수 있습니다.", "warn", false);
       }
     }
 
