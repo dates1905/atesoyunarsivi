@@ -28,8 +28,8 @@
 <meta property="og:locale" content="tr_TR">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ATEŞ Oyun Arşivi">
-<meta property="og:title" content="Oyun Launcher İndir (Ücretsiz) – ATEŞ Oyun Arşivi">
-<meta property="og:description" content="ATEŞ Oyun Arşivi ile Steam, Epic ve tüm oyunlarını tek yerde topla. Ücretsiz oyun launcher indir, hızlı başlat ve modern arşiv deneyimi yaşa.">
+<meta property="og:title" content="ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher">
+<meta property="og:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla. Hızlı, modern ve ücretsiz oyun launcher.">
 <meta property="og:url" content="https://dates1905.github.io/atesoyunarsivi/">
 <meta property="og:image" content="https://dates1905.github.io/atesoyunarsivi/logo.png">
 <meta property="og:image:width" content="512">
@@ -37,8 +37,8 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Oyun Launcher İndir (Ücretsiz) – ATEŞ Oyun Arşivi">
-<meta name="twitter:description" content="ATEŞ Oyun Arşivi ile Steam, Epic ve tüm oyunlarını tek yerde topla. Ücretsiz oyun launcher indir, hızlı başlat ve modern arşiv deneyimi yaşa.">
+<meta name="twitter:title" content="ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher">
+<meta name="twitter:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla. Hızlı, modern ve ücretsiz oyun launcher.">
 <meta name="twitter:image" content="https://dates1905.github.io/atesoyunarsivi/logo.png">
 
 <!-- Site name + organization -->
@@ -686,7 +686,7 @@
         <div class="mini-badge language-badge">
           <span class="lang-label">Diller:</span>
           <div class="lang-links">
-            <a class="lang-item" class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
+            <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
               <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
             </a>
             <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
@@ -704,7 +704,7 @@
             <span class="dot"></span>
             En son sürüm otomatik çekiliyor
           </div>
-          <a class="mini-badge" href="https://github.com/dates1905/atesoyunarsivi/releases" target="_blank" rel="noopener noreferrer">
+          <a class="mini-badge" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases" target="_blank" rel="noopener noreferrer">
             GitHub Release
           </a>
         </div>
@@ -735,19 +735,26 @@
                   <a
                     id="downloadBtn"
                     class="btn btn-primary"
-                    href="https://github.com/dates1905/atesoyunarsivi/releases"
+                    href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Kurulumu İndir
                   </a>
-
-                 <div style="color:#98a8c3; font-size:14px; margin-top:10px;">
-  ⚠️ Sadece Windows işletim sistemi için desteklenir
-</div>
                 </div>
 
-                
+                <div style="
+                  margin-top:12px;
+                  padding:10px 14px;
+                  border-radius:10px;
+                  background:rgba(255,255,255,0.05);
+                  border:1px solid rgba(255,255,255,0.08);
+                  font-size:13px;
+                  color:#c9d6ec;
+                  display:inline-block;
+                ">
+                  🪟 Sadece Windows için desteklenir (.exe)
+                </div>
 
                 <div class="stats">
                   <div class="stat">
@@ -826,8 +833,8 @@
   </div>
 
   <script>
-    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/atesoyunarsivi/releases/latest";
-    const RELEASES_PAGE_URL = "https://github.com/dates1905/atesoyunarsivi/releases";
+    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
+    const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
 
     function byId(id) {
       return document.getElementById(id);
@@ -858,14 +865,6 @@
       if (!Array.isArray(assets)) return null;
       for (const asset of assets) {
         if (/\.exe$/i.test(asset.name || "")) return asset;
-      }
-      return null;
-    }
-
-    function pickAppxAsset(assets) {
-      if (!Array.isArray(assets)) return null;
-      for (const asset of assets) {
-        if (/\.appx$/i.test(asset.name || "")) return asset;
       }
       return null;
     }
@@ -908,7 +907,6 @@
         const version = release.tag_name || release.name || "Bilinmiyor";
         const buildDate = formatDate(release.published_at);
         const exeAsset = pickExeAsset(release.assets || []);
-        const appxAsset = pickAppxAsset(release.assets || []);
         const downloadUrl = exeAsset ? exeAsset.browser_download_url : (release.html_url || RELEASES_PAGE_URL);
         const fileName = exeAsset ? exeAsset.name : "İndirilebilir .exe bulunamadı";
 
@@ -926,12 +924,6 @@
           downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "Release Sayfasını Aç";
         }
 
-        const appxBtn = byId("appxBtn");
-        if (appxBtn) {
-          appxBtn.href = appxAsset ? appxAsset.browser_download_url : RELEASES_PAGE_URL;
-          appxBtn.textContent = appxAsset ? "Microsoft Paketi (.appx)" : "Microsoft Paketi";
-        }
-
         setStatus(
           exeAsset
             ? "En güncel sürüm başarıyla yüklendi: " + version
@@ -942,7 +934,7 @@
       } catch (error) {
         console.error("Release yüklenemedi:", error);
 
-        if (byId("versionText")) byId("versionText").textContent = "Yükleniyor...";
+        if (byId("versionText")) byId("versionText").textContent = "Yüklenemedi";
         if (byId("buildDate")) byId("buildDate").textContent = "Bilinmiyor";
         if (byId("releaseStatus")) byId("releaseStatus").textContent = "Bağlantı Hatası";
         if (byId("fileType")) byId("fileType").textContent = "Release";
@@ -954,12 +946,6 @@
         if (downloadBtn) {
           downloadBtn.href = RELEASES_PAGE_URL;
           downloadBtn.textContent = "Release Sayfasını Aç";
-        }
-
-        const appxBtn = byId("appxBtn");
-        if (appxBtn) {
-          appxBtn.href = RELEASES_PAGE_URL;
-          appxBtn.textContent = "Microsoft Paketi";
         }
 
         setStatus("GitHub API geçici olarak cevap vermedi. Release sayfası kullanılabilir.", "warn", false);
