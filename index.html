@@ -2,255 +2,816 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ff6b1a">
-  <title>Oyun Launcher İndir (Ücretsiz) – ATEŞ Oyun Arşivi | Steam, Epic, Rockstar Tek Program</title>
-  <meta name="description" content="ATEŞ Oyun Arşivi ile Steam, Epic ve tüm oyunlarını tek yerde topla. Ücretsiz oyun launcher indir, hızlı başlat ve modern arşiv deneyimi yaşa.">
-  <meta name="keywords" content="ATEŞ Oyun Arşivi, game launcher, free game launcher, Steam, Epic, Rockstar">
-  <meta name="author" content="ATEŞ Oyun Arşivi">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://dates1905.github.io/atesoyunarsivi/">
-  <link rel="alternate" hreflang="tr" href="https://dates1905.github.io/atesoyunarsivi/">
-  <link rel="alternate" hreflang="ko" href="https://dates1905.github.io/atesoyunarsivi/ko/">
-  <link rel="alternate" hreflang="ja" href="https://dates1905.github.io/atesoyunarsivi/ja/">
-  <link rel="alternate" hreflang="es" href="https://dates1905.github.io/atesoyunarsivi/es/">
-  <link rel="alternate" hreflang="x-default" href="https://dates1905.github.io/atesoyunarsivi/">
-  <link rel="icon" href="https://dates1905.github.io/atesoyunarsivi/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="48x48" href="https://dates1905.github.io/atesoyunarsivi/favicon-48x48.png">
-  <link rel="apple-touch-icon" href="https://dates1905.github.io/atesoyunarsivi/apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ff6b1a">
+
+<title>Oyun Launcher İndir (Ücretsiz) – ATEŞ Oyun Arşivi | Steam, Epic, Rockstar Tek Program</title>
+
+<meta name="description" content="ATEŞ Oyun Arşivi ile Steam, Epic ve tüm oyunlarını tek yerde topla. Ücretsiz oyun launcher indir, hızlı başlat ve modern arşiv deneyimi yaşa.">
+<meta name="keywords" content="ATEŞ Oyun Arşivi, game launcher, free game launcher, Steam, Epic, Rockstar">
+<meta name="author" content="ATEŞ Oyun Arşivi">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<link rel="canonical" href="https://dates1905.github.io/atesoyunarsivi/">
+<link rel="alternate" hreflang="tr" href="https://dates1905.github.io/atesoyunarsivi/">
+<link rel="alternate" hreflang="ko" href="https://dates1905.github.io/atesoyunarsivi/ko/">
+<link rel="alternate" hreflang="ja" href="https://dates1905.github.io/atesoyunarsivi/ja/">
+<link rel="alternate" hreflang="es" href="https://dates1905.github.io/atesoyunarsivi/es/">
+<link rel="alternate" hreflang="x-default" href="https://dates1905.github.io/atesoyunarsivi/">
+
+<!-- Favicon -->
+<link rel="icon" href="https://dates1905.github.io/atesoyunarsivi/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="https://dates1905.github.io/atesoyunarsivi/favicon-48x48.png">
+<link rel="apple-touch-icon" href="https://dates1905.github.io/atesoyunarsivi/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="tr_TR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ATEŞ Oyun Arşivi">
+<meta property="og:title" content="ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher">
+<meta property="og:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla. Hızlı, modern ve ücretsiz oyun launcher.">
+<meta property="og:url" content="https://dates1905.github.io/atesoyunarsivi/">
+<meta property="og:image" content="https://dates1905.github.io/atesoyunarsivi/logo.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher">
+<meta name="twitter:description" content="Steam, Epic, Rockstar ve diğer oyunlarını tek yerde topla. Hızlı, modern ve ücretsiz oyun launcher.">
+<meta name="twitter:image" content="https://dates1905.github.io/atesoyunarsivi/logo.png">
+
+<!-- Site name + organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dates1905.github.io/atesoyunarsivi/#website",
+      "url": "https://dates1905.github.io/atesoyunarsivi/",
+      "name": "ATEŞ Oyun Arşivi",
+      "alternateName": ["ATES Oyun Arsivi", "ATEŞ Launcher"],
+      "inLanguage": "tr-TR"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://dates1905.github.io/atesoyunarsivi/#organization",
+      "name": "ATEŞ Oyun Arşivi",
+      "url": "https://dates1905.github.io/atesoyunarsivi/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dates1905.github.io/atesoyunarsivi/logo.png"
+      },
+      "image": "https://dates1905.github.io/atesoyunarsivi/logo.png"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="style.css" />
+
   <style>
     * { box-sizing: border-box; }
+
     :root {
-      --bg: #070b12; --bg-soft: #0c1220; --card: rgba(14, 19, 32, 0.82); --line: rgba(255,255,255,0.09);
-      --text: #eef3ff; --muted: #98a8c3; --accent: #ff6b1a; --accent-2: #ff2f6d; --green: #1fc97a;
-      --shadow: 0 30px 80px rgba(0,0,0,0.42); --radius-xl: 28px; --radius-lg: 20px; --max: 1240px;
+      --bg: #070b12;
+      --bg-soft: #0c1220;
+      --card: rgba(14, 19, 32, 0.82);
+      --line: rgba(255,255,255,0.09);
+      --text: #eef3ff;
+      --muted: #98a8c3;
+      --accent: #ff6b1a;
+      --accent-2: #ff2f6d;
+      --green: #1fc97a;
+      --shadow: 0 30px 80px rgba(0,0,0,0.42);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --max: 1240px;
     }
+
     html, body {
-      margin: 0; padding: 0; min-height: 100%;
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
       background:
         radial-gradient(circle at 10% 10%, rgba(255,107,26,0.18), transparent 26%),
         radial-gradient(circle at 90% 10%, rgba(255,47,109,0.16), transparent 24%),
         linear-gradient(135deg, #05070c 0%, #0b111b 45%, #0b0f17 100%);
-      color: var(--text); font-family: Inter, Arial, Helvetica, sans-serif; overflow-x: hidden;
-      cursor: default;
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
     }
+
     a { color: inherit; text-decoration: none; }
-    .bg-blur,.particles,.dragon-sky,.cursor-fx-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow:hidden; }
-    .dragon-sky { z-index: 2; }
-    .cursor-fx-layer { z-index: 3; }
-    .bg-blur::before,.bg-blur::after {
-      content:""; position:absolute; border-radius:50%; filter: blur(110px); opacity:.2; animation: floatBlob 12s ease-in-out infinite;
+
+    .bg-blur {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
-    .bg-blur::before { width:34vw; height:34vw; left:-10vw; top:-6vw; background:#ff6b1a; }
-    .bg-blur::after { width:30vw; height:30vw; right:-8vw; bottom:-10vw; background:#ff2f6d; animation-duration:14s; }
-    @keyframes floatBlob { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,24px)} }
+
+    .bg-blur::before,
+    .bg-blur::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.2;
+      animation: floatBlob 12s ease-in-out infinite;
+    }
+
+    .bg-blur::before {
+      width: 34vw;
+      height: 34vw;
+      left: -10vw;
+      top: -6vw;
+      background: #ff6b1a;
+    }
+
+    .bg-blur::after {
+      width: 30vw;
+      height: 30vw;
+      right: -8vw;
+      bottom: -10vw;
+      background: #ff2f6d;
+      animation-duration: 14s;
+    }
+
+    @keyframes floatBlob {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(20px, 24px); }
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .particle {
-      position:absolute; bottom:-20px; width:4px; height:4px; border-radius:999px;
-      background: linear-gradient(135deg, #ff8a3d, #ff2f6d); opacity:.45; animation: rise linear infinite;
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff8a3d, #ff2f6d);
+      opacity: 0.45;
+      animation: rise linear infinite;
     }
+
     @keyframes rise {
-      from { transform: translateY(0) scale(1); opacity: 0; } 10% { opacity:.45; }
-      to { transform: translateY(-110vh) scale(.6); opacity: 0; }
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      10% { opacity: 0.45; }
+      to {
+        transform: translateY(-110vh) scale(0.6);
+        opacity: 0;
+      }
     }
-    .wrap { position:relative; z-index: 1; width:100%; }
-    .container { width:min(var(--max), calc(100% - 32px)); margin:0 auto; }
-    .topbar { position:sticky; top:0; z-index:10; backdrop-filter: blur(16px); background:rgba(7,11,18,.58); border-bottom:1px solid rgba(255,255,255,.05); }
-    .topbar-inner { height:74px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand { display:flex; align-items:center; gap:14px; min-width:0; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 11, 18, 0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .topbar-inner {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
     .brand-logo {
-      width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center;
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); box-shadow:0 8px 24px rgba(0,0,0,.25);
-      overflow:hidden; padding:6px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      overflow: hidden;
+      padding: 6px;
     }
-    .brand-logo img { width:100%; height:100%; object-fit:contain; display:block; }
-    .brand-title { font-size:18px; font-weight:800; letter-spacing:.2px; white-space:nowrap; }
-    .brand-sub { font-size:12px; color:var(--muted); margin-top:3px; white-space:nowrap; }
-    .nav-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .mini-badge {
-      min-height:40px; padding:0 14px; display:inline-flex; align-items:center; border-radius:999px;
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); color:#c9d6ec; font-size:13px; gap:8px;
+      min-height: 40px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #c9d6ec;
+      font-size: 13px;
+      gap: 8px;
     }
-    .dot { width:8px; height:8px; border-radius:999px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 0 12px rgba(255,107,26,.7); flex:0 0 auto; }
-    .hero { padding:40px 0 26px; }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 12px rgba(255,107,26,0.7);
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      padding: 40px 0 26px;
+    }
+
     .hero-card {
-      position:relative; overflow:hidden; border-radius:var(--radius-xl);
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)), rgba(13,17,27,.78);
-      border:1px solid rgba(255,255,255,.07); box-shadow:var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)),
+        rgba(13, 17, 27, 0.78);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: var(--shadow);
     }
-    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; min-height:650px; }
-    .hero-left { padding:52px 46px 42px; display:flex; flex-direction:column; justify-content:center; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 650px;
+    }
+
+    .hero-left {
+      padding: 52px 46px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     .eyebrow {
-      display:inline-flex; align-items:center; gap:10px; width:fit-content; min-height:42px; padding:0 16px; border-radius:999px;
-      background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.07); color:#ffe0cf; font-size:13px; margin-bottom:22px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #ffe0cf;
+      font-size: 13px;
+      margin-bottom: 22px;
     }
-    .hero-title { margin:0; font-size:clamp(42px,6vw,78px); line-height:.95; letter-spacing:-2.5px; font-weight:900; }
-    .hero-title .accent { background:linear-gradient(135deg,#ffb167,#ff6b1a,#ff2f6d); -webkit-background-clip:text; background-clip:text; color:transparent; display:inline-block; }
-    .hero-desc { margin:22px 0 28px; max-width:700px; color:var(--muted); font-size:18px; line-height:1.8; }
-    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:18px; }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -2.5px;
+      font-weight: 900;
+    }
+
+    .hero-title .accent {
+      background: linear-gradient(135deg, #ffb167, #ff6b1a, #ff2f6d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .hero-desc {
+      margin: 22px 0 28px;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
     .btn {
-      min-height:56px; padding:0 22px; border-radius:18px; display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      font-weight:800; font-size:15px; border:1px solid transparent; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-      will-change: transform;
+      min-height: 56px;
+      padding: 0 22px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
     }
+
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff; box-shadow:0 16px 34px rgba(255,107,26,.28); }
-    .windows-only {
-      margin-top:12px; padding:10px 14px; border-radius:12px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
-      font-size:13px; color:#c9d6ec; display:inline-block;
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(255, 107, 26, 0.28);
     }
-    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:18px; }
-    .stat { padding:16px 16px 15px; border-radius:18px; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.06); min-height:94px; }
-    .stat-label { font-size:12px; text-transform:uppercase; letter-spacing:1px; color:#8ea0bc; margin-bottom:10px; }
-    .stat-value { font-size:22px; font-weight:800; word-break:break-word; }
-    .hero-right {
-      position:relative; min-height:650px;
-      background: linear-gradient(90deg, rgba(7,11,18,.3), rgba(7,11,18,.6)), url("launcher.jpg?v=3") center center no-repeat;
-      background-size:contain; background-color:#0b0f17;
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border-color: rgba(255,255,255,0.08);
     }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 16px 16px 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 94px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8ea0bc;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+   .hero-right {
+  position: relative;
+  min-height: 650px;
+  background:
+    linear-gradient(90deg, rgba(7,11,18,0.3), rgba(7,11,18,0.6)),
+    url("launcher.jpg?v=3") center center no-repeat;
+  background-size: contain;
+  background-color: #0b0f17;
+}
+
+    @media (max-width: 768px) {
+  .hero-right {
+    background-size: contain;
+    min-height: 300px;
+  }
+}
+
     .hero-right::before {
-      content:""; position:absolute; inset:0;
-      background: radial-gradient(circle at 70% 25%, rgba(255,107,26,.12), transparent 18%),
-                  radial-gradient(circle at 88% 15%, rgba(255,47,109,.12), transparent 22%);
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(255,107,26,0.12), transparent 18%),
+        radial-gradient(circle at 88% 15%, rgba(255,47,109,0.12), transparent 22%);
     }
+
     .floating-panel {
-      position:absolute; right:24px; bottom:24px; width:min(360px, calc(100% - 48px)); padding:18px; border-radius:22px;
-      background:rgba(7,11,18,.76); border:1px solid rgba(255,255,255,.08); backdrop-filter:blur(16px); box-shadow:0 18px 44px rgba(0,0,0,.34);
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      top: auto;
+      left: auto;
       transform: none !important;
+      z-index: 2;
+      width: min(360px, calc(100% - 48px));
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(7, 11, 18, 0.76);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.34);
     }
-    .floating-title { font-size:14px; color:#ffd9c6; margin-bottom:12px; font-weight:700; }
-    .file-row { display:flex; gap:10px; flex-wrap:wrap; }
+
+    .floating-title {
+      font-size: 14px;
+      color: #ffd9c6;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .file-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .pill {
-      min-height:40px; padding:0 14px; display:inline-flex; align-items:center; border-radius:999px; background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08); color:#d0ddf0; font-size:13px; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+      min-height: 40px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #d0ddf0;
+      font-size: 13px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+
     .status-box {
-      margin-top:14px; min-height:58px; border-radius:16px; padding:14px 16px; display:flex; align-items:center; gap:10px; font-size:14px; line-height:1.6;
-      border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04); color:#dce6f5;
+      margin-top: 14px;
+      min-height: 58px;
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #dce6f5;
     }
-    .status-box.ok { background:rgba(31,201,122,.11); border-color:rgba(31,201,122,.34); color:#dbffec; }
-    .status-box.warn { background:rgba(255,107,26,.10); border-color:rgba(255,107,26,.26); color:#ffe6d7; }
-    .spinner { width:16px; height:16px; border-radius:999px; border:2px solid rgba(255,255,255,.24); border-top-color:#fff; animation:spin .9s linear infinite; flex:0 0 auto; }
+
+    .status-box.ok {
+      background: rgba(31, 201, 122, 0.11);
+      border-color: rgba(31, 201, 122, 0.34);
+      color: #dbffec;
+    }
+
+    .status-box.warn {
+      background: rgba(255, 107, 26, 0.10);
+      border-color: rgba(255, 107, 26, 0.26);
+      color: #ffe6d7;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.24);
+      border-top-color: #fff;
+      animation: spin .9s linear infinite;
+      flex: 0 0 auto;
+    }
+
     @keyframes spin { to { transform: rotate(360deg); } }
-    .section { padding:0 0 34px; }
-    .section-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+
+    .section { padding: 0 0 34px; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
     .feature-card {
-      border-radius:24px; padding:24px; background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01)), rgba(12,18,30,.72);
-      border:1px solid rgba(255,255,255,.07); box-shadow:0 18px 50px rgba(0,0,0,.24);
-      transition: transform .18s ease, box-shadow .18s ease;
-      will-change: transform;
+      border-radius: 24px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
+        rgba(12,18,30,0.72);
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.24);
     }
+
     .feature-icon {
-      width:50px; height:50px; border-radius:16px; display:grid; place-items:center; font-size:20px;
-      background:linear-gradient(135deg, rgba(255,107,26,.18), rgba(255,47,109,.16)); border:1px solid rgba(255,255,255,.07); margin-bottom:16px;
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      background: linear-gradient(135deg, rgba(255,107,26,0.18), rgba(255,47,109,0.16));
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 16px;
     }
-    .feature-title { margin:0 0 10px; font-size:20px; font-weight:800; }
-    .feature-desc { margin:0; color:var(--muted); font-size:15px; line-height:1.8; }
-    .footer { padding:8px 0 42px; color:#91a2bc; font-size:14px; }
+
+    .feature-title {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .feature-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 8px 0 42px;
+      color: #91a2bc;
+      font-size: 14px;
+    }
+
     .footer-box {
-      border-radius:20px; padding:18px 20px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);
-      display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      border-radius: 20px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .language-badge { gap:10px; padding-right:10px; flex-wrap:wrap; }
-    .lang-label { font-weight:700; color:#eef3ff; white-space:nowrap; }
-    .lang-links { display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap; }
+
+    @media (max-width: 1120px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-right { min-height: 420px; order: -1; }
+      .hero-left { padding: 34px 24px 26px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-grid { grid-template-columns: 1fr; }
+    }
+
+    
+    .language-badge {
+      gap: 10px;
+      padding-right: 10px;
+      flex-wrap: wrap;
+    }
+
+    .lang-label {
+      font-weight: 700;
+      color: #eef3ff;
+      white-space: nowrap;
+    }
+
+    .lang-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .lang-item {
-      min-height:32px; padding:0 10px; border-radius:999px; display:inline-flex; align-items:center; gap:6px;
-      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); transition:transform .18s ease,border-color .18s ease,background .18s ease; font-size:12px; font-weight:700;
+      min-height: 32px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      font-size: 12px;
+      font-weight: 700;
     }
-    .lang-item:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.18); background:rgba(255,255,255,.08); }
-    .lang-item.active { background:linear-gradient(135deg, rgba(255,107,26,.22), rgba(255,47,109,.18)); border-color:rgba(255,107,26,.5); }
-    .flag { font-size:15px; line-height:1; }
-    .lang-text { letter-spacing:.3px; }
-    .cursor-glow {
-      position: fixed; width: 320px; height: 320px; margin-left:-160px; margin-top:-160px; border-radius:50%;
-      background: radial-gradient(circle, rgba(255,107,26,.18) 0%, rgba(255,47,109,.12) 28%, rgba(98,56,255,.08) 42%, transparent 70%);
-      filter: blur(20px); opacity:.9; transform: translate3d(-9999px,-9999px,0); transition: width .2s ease,height .2s ease,margin .2s ease,opacity .2s ease;
+
+    .lang-item:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .lang-item.active {
+      background: linear-gradient(135deg, rgba(255,107,26,0.22), rgba(255,47,109,0.18));
+      border-color: rgba(255,107,26,0.5);
+    }
+
+    .flag {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .lang-text {
+      letter-spacing: 0.3px;
+    }
+
+
+    @media (max-width: 700px) {
+      .container { width: min(var(--max), calc(100% - 20px)); }
+      .topbar-inner {
+        height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .hero { padding-top: 18px; }
+      .hero-title { letter-spacing: -1.4px; }
+      .hero-desc { font-size: 16px; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .stats { grid-template-columns: 1fr; }
+      .hero-right { min-height: 320px; }
+      .floating-panel {
+        right: 14px;
+        bottom: 14px;
+        width: calc(100% - 28px);
+      }
+    }
+  
+    .cursor-glow,
+    .cursor-core {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity .25s ease;
       mix-blend-mode: screen;
     }
-    .cursor-glow.active { width: 420px; height:420px; margin-left:-210px; margin-top:-210px; opacity:1; }
-    .cursor-dot {
-      position: fixed; width: 10px; height: 10px; margin-left:-5px; margin-top:-5px; border-radius:50%;
-      background: linear-gradient(135deg, #ffb167, #ff2f6d); box-shadow: 0 0 18px rgba(255,107,26,.55);
-      transform: translate3d(-9999px,-9999px,0);
+
+    .cursor-glow {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,107,26,0.22) 0%, rgba(255,47,109,0.14) 35%, rgba(255,107,26,0.06) 52%, rgba(255,107,26,0) 72%);
+      filter: blur(10px);
     }
+
+    .cursor-core {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,182,120,0.9) 34%, rgba(255,107,26,0.18) 70%, rgba(255,107,26,0) 100%);
+      box-shadow:
+        0 0 16px rgba(255,107,26,0.55),
+        0 0 34px rgba(255,47,109,0.25);
+    }
+
     .cursor-trail {
-      position: fixed; width: 8px; height: 8px; margin-left:-4px; margin-top:-4px; border-radius:50%;
-      background: rgba(255,148,73,.55); filter: blur(2px); opacity:0; transform: translate3d(-9999px,-9999px,0); animation: trailFade .6s ease forwards;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.6);
+      background: linear-gradient(135deg, rgba(255,190,120,0.95), rgba(255,47,109,0.65));
+      box-shadow: 0 0 12px rgba(255,107,26,0.35);
+      will-change: transform, opacity;
     }
-    @keyframes trailFade { from {opacity:.75; transform: scale(1)} to {opacity:0; transform: scale(.2)} }
-    .dragon {
-      position:absolute; width:84px; height:56px; transform-origin:center center; opacity:.9;
-      animation: dragonFloat 4.5s ease-in-out infinite;
+
+    .cursor-active .cursor-glow,
+    .cursor-active .cursor-core,
+    .cursor-active .cursor-trail {
+      opacity: 1;
     }
-    .dragon svg { width:100%; height:100%; overflow:visible; filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
-    .dragon .eye { fill:#a4ff91; }
-    .dragon .body { fill:#0d1118; }
-    .dragon .wing { fill:#111722; }
-    .dragon .tailfin { fill:#1a2233; }
-    .dragon .nose { fill:#1b2231; }
-    @keyframes dragonFloat { 0%,100%{ transform: translateY(0) rotate(0deg)} 50%{transform: translateY(-8px) rotate(-1.5deg)} }
-    @media (max-width:1120px){
-      .hero-grid { grid-template-columns:1fr; }
-      .hero-right { min-height:420px; order:-1; }
-      .hero-left { padding:34px 24px 26px; }
-      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .section-grid { grid-template-columns:1fr; }
+
+    .interactive-hover {
+      position: relative;
+      overflow: hidden;
     }
-    @media (max-width:768px){
-      .hero-right { background-size: contain; min-height: 300px; }
+
+    .interactive-hover::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.16), rgba(255,255,255,0) 32%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
     }
-    @media (max-width:700px){
-      .container { width:min(var(--max), calc(100% - 20px)); }
-      .topbar-inner { height:auto; padding:14px 0; align-items:flex-start; flex-direction:column; }
-      .hero { padding-top:18px; }
-      .hero-title { letter-spacing:-1.4px; }
-      .hero-desc { font-size:16px; }
-      .hero-actions { flex-direction:column; }
-      .btn { width:100%; }
-      .stats { grid-template-columns:1fr; }
-      .hero-right { min-height:320px; }
-      .floating-panel { right:14px; bottom:14px; width:calc(100% - 28px); }
-      .dragon-sky,.cursor-fx-layer { display:none; }
+
+    .interactive-hover:hover::after {
+      opacity: 1;
     }
-    @media (prefers-reduced-motion: reduce){
-      .dragon-sky,.cursor-fx-layer { display:none; }
+
+    .interactive-hover.lift {
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      will-change: transform;
     }
+
+    .interactive-hover.lift:hover {
+      box-shadow: 0 22px 50px rgba(0,0,0,0.28);
+    }
+
+    @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+      .cursor-glow,
+      .cursor-core,
+      .cursor-trail {
+        display: none !important;
+      }
+      .interactive-hover,
+      .interactive-hover.lift {
+        transform: none !important;
+      }
+    }
+
   </style>
 </head>
 <body>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="cursor-core" id="cursorCore" aria-hidden="true"></div>
+
+
   <div style="position:absolute; left:-9999px;">
-    <h1>ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher</h1>
-    <h2>Steam, Epic ve tüm oyunlarını tek yerden başlat</h2>
-  </div>
+  <h1>ATEŞ Oyun Arşivi – Ücretsiz Oyun Launcher</h1>
+  <h2>Steam, Epic ve tüm oyunlarını tek yerden başlat</h2>
+</div>
 
   <div class="bg-blur"></div>
   <div class="particles" id="particles"></div>
-  <div class="dragon-sky" id="dragonSky"></div>
-  <div class="cursor-fx-layer" id="cursorFx"></div>
 
   <div class="wrap">
     <header class="topbar">
       <div class="container topbar-inner">
         <div class="brand">
-          <div class="brand-logo"><img src="logo.png?v=4" alt="ATEŞ Oyun Arşivi logo" /></div>
+  <div class="brand-logo">
+    <img src="logo.png?v=4" alt="ATEŞ Oyun Arşivi logo" />
+  </div>
           <div>
             <div class="brand-title">ATEŞ Oyun Arşivi</div>
             <div class="brand-sub">Akıllı launcher ve modern oyun kütüphanesi</div>
           </div>
         </div>
+
         <div class="nav-actions">
-          <div class="mini-badge language-badge">
-            <span class="lang-label">Diller:</span>
-            <div class="lang-links">
-              <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe"><span class="flag">🇹🇷</span><span class="lang-text">TR</span></a>
-              <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어"><span class="flag">🇰🇷</span><span class="lang-text">KO</span></a>
-              <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語"><span class="flag">🇯🇵</span><span class="lang-text">JA</span></a>
-              <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español"><span class="flag">🇪🇸</span><span class="lang-text">ES</span></a>
-            </div>
+        <div class="mini-badge language-badge">
+          <span class="lang-label">Diller:</span>
+          <div class="lang-links">
+            <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
+              <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
+              <span class="flag">🇰🇷</span><span class="lang-text">KO</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語">
+              <span class="flag">🇯🇵</span><span class="lang-text">JA</span>
+            </a>
+            <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español">
+              <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
+            </a>
           </div>
-          <div class="mini-badge"><span class="dot"></span>En son sürüm otomatik çekiliyor</div>
-          <a class="mini-badge" href="https://github.com/dates1905/atesoyunarsivi/releases" target="_blank" rel="noopener noreferrer">GitHub Release</a>
+        </div>
+          <div class="mini-badge">
+            <span class="dot"></span>
+            En son sürüm otomatik çekiliyor
+          </div>
+          <a class="mini-badge" href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases" target="_blank" rel="noopener noreferrer">
+            GitHub Release
+          </a>
         </div>
       </div>
     </header>
@@ -261,19 +822,65 @@
           <div class="hero-card">
             <div class="hero-grid">
               <div class="hero-left">
-                <div class="eyebrow"><span class="dot"></span>Oyunlarını tek merkezden yönet</div>
-                <div class="hero-title"><span class="accent">ATEŞ</span><br />Oyun Arşivi</div>
-                <p class="hero-desc">Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat ve kendi kütüphaneni güçlü bir masaüstü launcher deneyimine dönüştür.</p>
-                <div class="hero-actions">
-                  <a id="downloadBtn" class="btn btn-primary" href="https://github.com/dates1905/atesoyunarsivi/releases" target="_blank" rel="noopener noreferrer">Kurulumu İndir</a>
+                <div class="eyebrow">
+                  <span class="dot"></span>
+                  Oyunlarını tek merkezden yönet
                 </div>
-                <div class="windows-only">🪟 Sadece Windows için desteklenir (.exe)</div>
+
+<div class="hero-title">
+  <span class="accent">ATEŞ</span><br />
+  Oyun Arşivi
+</div>
+                
+                <p class="hero-desc">
+                  Oyunlarını tek yerde topla, kapaklarla düzenle, hızlı başlat ve kendi kütüphaneni güçlü bir masaüstü launcher deneyimine dönüştür.
+                </p>
+
+                <div class="hero-actions">
+                  <a
+                    id="downloadBtn"
+                    class="btn btn-primary"
+                    href="https://github.com/dates1905/ATES-OYUN-ARSIVI/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Kurulumu İndir
+                  </a>
+                </div>
+
+                <div style="
+                  margin-top:12px;
+                  padding:10px 14px;
+                  border-radius:10px;
+                  background:rgba(255,255,255,0.05);
+                  border:1px solid rgba(255,255,255,0.08);
+                  font-size:13px;
+                  color:#c9d6ec;
+                  display:inline-block;
+                ">
+                  🪟 Sadece Windows için desteklenir (.exe)
+                </div>
 
                 <div class="stats">
-                  <div class="stat"><div class="stat-label">Sürüm</div><div class="stat-value" id="versionText">Yükleniyor...</div></div>
-                  <div class="stat"><div class="stat-label">Build</div><div class="stat-value" id="buildDate">Yükleniyor...</div></div>
-                  <div class="stat"><div class="stat-label">Durum</div><div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div></div>
-                  <div class="stat"><div class="stat-label">Kurulum</div><div class="stat-value" id="fileType">.exe</div></div>
+                  <div class="stat">
+                    <div class="stat-label">Sürüm</div>
+                    <div class="stat-value" id="versionText">Yükleniyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Build</div>
+                    <div class="stat-value" id="buildDate">Yükleniyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Durum</div>
+                    <div class="stat-value" id="releaseStatus">Kontrol ediliyor...</div>
+                  </div>
+
+                  <div class="stat">
+                    <div class="stat-label">Kurulum</div>
+                    <div class="stat-value" id="fileType">.exe</div>
+                  </div>
                 </div>
               </div>
 
@@ -298,9 +905,23 @@
       <section class="section">
         <div class="container">
           <div class="section-grid">
-            <div class="feature-card magnetic"><div class="feature-icon">🚀</div><h3 class="feature-title">Akıllı Başlatma</h3><p class="feature-desc">Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.</p></div>
-            <div class="feature-card magnetic"><div class="feature-icon">🖼️</div><h3 class="feature-title">Kapak ve Düzen</h3><p class="feature-desc">Oyun kartları, kapaklar, sıralama ve kişisel arşiv düzeniyle modern bir görünüm sunar.</p></div>
-            <div class="feature-card magnetic"><div class="feature-icon">⚙️</div><h3 class="feature-title">Sürekli Güncel</h3><p class="feature-desc">En son release sürümü ve indirme bağlantısı otomatik çekilir.</p></div>
+            <div class="feature-card">
+              <div class="feature-icon">🚀</div>
+              <h3 class="feature-title">Akıllı Başlatma</h3>
+              <p class="feature-desc">Steam, Epic, Rockstar ve klasik exe/lnk yapılarıyla uyumlu pratik oyun başlatma sistemi.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🖼️</div>
+              <h3 class="feature-title">Kapak ve Düzen</h3>
+              <p class="feature-desc">Oyun kartları, kapaklar, sıralama ve kişisel arşiv düzeniyle modern bir görünüm sunar.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">⚙️</div>
+              <h3 class="feature-title">Sürekli Güncel</h3>
+              <p class="feature-desc">En son release sürümü ve indirme bağlantısı otomatik çekilir.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -316,63 +937,189 @@
     </footer>
   </div>
 
-  <script src="cursor_fx_tr.js"></script>
-  <script src="toothless_dragons_tr.js"></script>
   <script>
-    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/atesoyunarsivi/releases/latest";
-    const RELEASES_PAGE_URL = "https://github.com/dates1905/atesoyunarsivi/releases";
+    const RELEASE_API_URL = "https://api.github.com/repos/dates1905/ATES-OYUN-ARSIVI/releases/latest";
+    const RELEASES_PAGE_URL = "https://github.com/dates1905/ATES-OYUN-ARSIVI/releases";
 
-    function byId(id){ return document.getElementById(id); }
+    function byId(id) {
+      return document.getElementById(id);
+    }
 
-    function setStatus(message, type="warn", loading=false){
+    function setStatus(message, type = "warn", loading = false) {
       const box = byId("statusBox");
-      if(!box) return;
+      if (!box) return;
       box.className = "status-box " + type;
-      box.innerHTML = (loading ? '<div class="spinner"></div>' : '<span class="dot"></span>') + '<span>' + message + '</span>';
+      box.innerHTML = (
+        loading
+          ? '<div class="spinner"></div>'
+          : '<span class="dot"></span>'
+      ) + '<span>' + message + '</span>';
     }
 
-    function formatDate(dateStr){
-      if(!dateStr) return "Bilinmiyor";
+    function formatDate(dateStr) {
+      if (!dateStr) return "Bilinmiyor";
       const d = new Date(dateStr);
-      if(Number.isNaN(d.getTime())) return "Bilinmiyor";
-      const day = String(d.getDate()).padStart(2,"0");
-      const month = String(d.getMonth()+1).padStart(2,"0");
+      if (Number.isNaN(d.getTime())) return "Bilinmiyor";
+      const day = String(d.getDate()).padStart(2, "0");
+      const month = String(d.getMonth() + 1).padStart(2, "0");
       const year = d.getFullYear();
-      return `${day}.${month}.${year}`;
+      return day + "." + month + "." + year;
     }
 
-    function pickExeAsset(assets){
-      if(!Array.isArray(assets)) return null;
-      for(const asset of assets){
-        if(/\.exe$/i.test(asset.name || "")) return asset;
+    function pickExeAsset(assets) {
+      if (!Array.isArray(assets)) return null;
+      for (const asset of assets) {
+        if (/\.exe$/i.test(asset.name || "")) return asset;
       }
       return null;
     }
 
-    function createParticles(){
+    function createParticles() {
       const wrap = byId("particles");
-      if(!wrap) return;
+      if (!wrap) return;
       wrap.innerHTML = "";
       const count = window.innerWidth < 768 ? 20 : 36;
-      for(let i=0;i<count;i++){
+
+      for (let i = 0; i < count; i++) {
         const p = document.createElement("span");
         p.className = "particle";
-        p.style.left = (Math.random()*100) + "vw";
-        const size = 2 + Math.random()*4;
+        p.style.left = (Math.random() * 100) + "vw";
+        const size = 2 + Math.random() * 4;
         p.style.width = size + "px";
         p.style.height = size + "px";
-        p.style.animationDuration = (7 + Math.random()*9) + "s";
-        p.style.animationDelay = (Math.random()*8) + "s";
-        p.style.opacity = 0.16 + Math.random()*0.38;
+        p.style.animationDuration = (7 + Math.random() * 9) + "s";
+        p.style.animationDelay = (Math.random() * 8) + "s";
+        p.style.opacity = 0.16 + Math.random() * 0.38;
         wrap.appendChild(p);
       }
     }
 
-    async function loadLatestRelease(){
-      try{
+
+    function setupImmersiveCursor() {
+      if (window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      const glow = byId("cursorGlow");
+      const core = byId("cursorCore");
+      if (!glow || !core) return;
+
+      const trailCount = 10;
+      const trails = [];
+      const pointer = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+        tx: window.innerWidth / 2,
+        ty: window.innerHeight / 2
+      };
+
+      document.body.classList.add("cursor-active");
+
+      for (let i = 0; i < trailCount; i++) {
+        const dot = document.createElement("div");
+        dot.className = "cursor-trail";
+        dot.style.opacity = String(Math.max(0.08, 0.34 - i * 0.028));
+        document.body.appendChild(dot);
+        trails.push({
+          el: dot,
+          x: pointer.x,
+          y: pointer.y
+        });
+      }
+
+      function setInteractiveTargets() {
+        document.querySelectorAll(".btn, .feature-card, .stat, .mini-badge, .lang-item").forEach((el) => {
+          el.classList.add("interactive-hover", "lift");
+          el.addEventListener("mousemove", (event) => {
+            const rect = el.getBoundingClientRect();
+            const px = ((event.clientX - rect.left) / rect.width) * 100;
+            const py = ((event.clientY - rect.top) / rect.height) * 100;
+            el.style.setProperty("--mx", px.toFixed(2) + "%");
+            el.style.setProperty("--my", py.toFixed(2) + "%");
+          });
+
+          el.addEventListener("mouseenter", () => {
+            core.style.transform = "translate(-50%, -50%) scale(1.25)";
+            glow.style.transform = "translate(-50%, -50%) scale(1.08)";
+          });
+
+          el.addEventListener("mouseleave", () => {
+            core.style.transform = "translate(-50%, -50%) scale(1)";
+            glow.style.transform = "translate(-50%, -50%) scale(1)";
+            el.style.transform = "";
+          });
+
+          el.addEventListener("mousemove", (event) => {
+            const rect = el.getBoundingClientRect();
+            const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+            const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+            const moveX = offsetX * 8;
+            const moveY = offsetY * 8;
+            el.style.transform = "translate(" + moveX.toFixed(2) + "px, " + moveY.toFixed(2) + "px)";
+          });
+        });
+      }
+
+      setInteractiveTargets();
+
+      window.addEventListener("mousemove", (event) => {
+        pointer.tx = event.clientX;
+        pointer.ty = event.clientY;
+      }, { passive: true });
+
+      window.addEventListener("mouseout", (event) => {
+        if (!event.relatedTarget) {
+          document.body.classList.remove("cursor-active");
+        }
+      });
+
+      window.addEventListener("mouseover", () => {
+        document.body.classList.add("cursor-active");
+      });
+
+      function animate() {
+        pointer.x += (pointer.tx - pointer.x) * 0.18;
+        pointer.y += (pointer.ty - pointer.y) * 0.18;
+
+        glow.style.left = pointer.x + "px";
+        glow.style.top = pointer.y + "px";
+        core.style.left = pointer.x + "px";
+        core.style.top = pointer.y + "px";
+
+        let prevX = pointer.x;
+        let prevY = pointer.y;
+
+        trails.forEach((trail, index) => {
+          trail.x += (prevX - trail.x) * (0.22 - index * 0.012);
+          trail.y += (prevY - trail.y) * (0.22 - index * 0.012);
+          trail.el.style.left = trail.x + "px";
+          trail.el.style.top = trail.y + "px";
+          trail.el.style.transform = "translate(-50%, -50%) scale(" + (1 - index * 0.055).toFixed(2) + ")";
+          prevX = trail.x;
+          prevY = trail.y;
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+
+    async function loadLatestRelease() {
+      try {
         setStatus("GitHub üzerinden en son sürüm bilgisi alınıyor...", "warn", true);
-        const response = await fetch(RELEASE_API_URL, { method:"GET", headers:{"Accept":"application/vnd.github+json"}, cache:"no-store" });
-        if(!response.ok) throw new Error("GitHub API hatası: " + response.status);
+
+        const response = await fetch(RELEASE_API_URL, {
+          method: "GET",
+          headers: { "Accept": "application/vnd.github+json" },
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          throw new Error("GitHub API hatası: " + response.status);
+        }
+
         const release = await response.json();
         const version = release.tag_name || release.name || "Bilinmiyor";
         const buildDate = formatDate(release.published_at);
@@ -380,45 +1127,53 @@
         const downloadUrl = exeAsset ? exeAsset.browser_download_url : (release.html_url || RELEASES_PAGE_URL);
         const fileName = exeAsset ? exeAsset.name : "İndirilebilir .exe bulunamadı";
 
-        if(byId("versionText")) byId("versionText").textContent = version;
-        if(byId("buildDate")) byId("buildDate").textContent = buildDate;
-        if(byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
-        if(byId("fileType")) byId("fileType").textContent = exeAsset ? ".exe" : "Release";
-        if(byId("fileName")) byId("fileName").textContent = "Dosya: " + fileName;
-        if(byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: " + version;
-        if(byId("footerVersion")) byId("footerVersion").textContent = "Canlı sürüm: " + version;
+        if (byId("versionText")) byId("versionText").textContent = version;
+        if (byId("buildDate")) byId("buildDate").textContent = buildDate;
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = release.prerelease ? "Ön Sürüm" : "Yayında";
+        if (byId("fileType")) byId("fileType").textContent = exeAsset ? ".exe" : "Release";
+        if (byId("fileName")) byId("fileName").textContent = "Dosya: " + fileName;
+        if (byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: " + version;
+        if (byId("footerVersion")) byId("footerVersion").textContent = "Canlı sürüm: " + version;
 
         const downloadBtn = byId("downloadBtn");
-        if(downloadBtn){
+        if (downloadBtn) {
           downloadBtn.href = downloadUrl;
           downloadBtn.textContent = exeAsset ? "Kurulumu İndir" : "Release Sayfasını Aç";
         }
 
-        setStatus(exeAsset ? "En güncel sürüm başarıyla yüklendi: " + version : "Release bulundu ama .exe dosyası seçilemedi.", exeAsset ? "ok" : "warn", false);
-      }catch(error){
+        setStatus(
+          exeAsset
+            ? "En güncel sürüm başarıyla yüklendi: " + version
+            : "Release bulundu ama .exe dosyası seçilemedi.",
+          exeAsset ? "ok" : "warn",
+          false
+        );
+      } catch (error) {
         console.error("Release yüklenemedi:", error);
-        if(byId("versionText")) byId("versionText").textContent = "Yüklenemedi";
-        if(byId("buildDate")) byId("buildDate").textContent = "Bilinmiyor";
-        if(byId("releaseStatus")) byId("releaseStatus").textContent = "Bağlantı Hatası";
-        if(byId("fileType")) byId("fileType").textContent = "Release";
-        if(byId("fileName")) byId("fileName").textContent = "Dosya: Bilinmiyor";
-        if(byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: Bilinmiyor";
-        if(byId("footerVersion")) byId("footerVersion").textContent = "Release bilgisi alınamadı";
+
+        if (byId("versionText")) byId("versionText").textContent = "Yüklenemedi";
+        if (byId("buildDate")) byId("buildDate").textContent = "Bilinmiyor";
+        if (byId("releaseStatus")) byId("releaseStatus").textContent = "Bağlantı Hatası";
+        if (byId("fileType")) byId("fileType").textContent = "Release";
+        if (byId("fileName")) byId("fileName").textContent = "Dosya: Bilinmiyor";
+        if (byId("versionBadge")) byId("versionBadge").textContent = "Sürüm: Bilinmiyor";
+        if (byId("footerVersion")) byId("footerVersion").textContent = "Release bilgisi alınamadı";
+
         const downloadBtn = byId("downloadBtn");
-        if(downloadBtn){
+        if (downloadBtn) {
           downloadBtn.href = RELEASES_PAGE_URL;
           downloadBtn.textContent = "Release Sayfasını Aç";
         }
+
         setStatus("GitHub API geçici olarak cevap vermedi. Release sayfası kullanılabilir.", "warn", false);
       }
     }
 
-    window.addEventListener("load", function(){
+    window.addEventListener("load", function () {
       createParticles();
       loadLatestRelease();
+      setupImmersiveCursor();
     });
-    <script src="cursor_fx_tr.js"></script>
-<script src="toothless_dragons_tr.js"></script>
   </script>
 </body>
 </html>
