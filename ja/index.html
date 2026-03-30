@@ -68,9 +68,7 @@
   ]
 }
 </script>
-
-
-  <style>
+<style>
     * { box-sizing: border-box; }
 
     :root {
@@ -629,9 +627,15 @@
       border-color: rgba(255,107,26,0.5);
     }
 
-    .flag {
-      font-size: 15px;
-      line-height: 1;
+    
+    .flag-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
     }
 
     .lang-text {
@@ -789,18 +793,22 @@
         <div class="nav-actions">
         <div class="mini-badge language-badge">
           <span class="lang-label">言語:</span>
-          <div class="lang-links">
+                    <div class="lang-links">
             <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/" aria-label="Türkçe">
-              <span class="flag">🇹🇷</span><span class="lang-text">TR</span>
+              <img class="flag-icon" src="../assets/flags/tr.svg" alt="Türkiye bayrağı" />
+              <span class="lang-text">TR</span>
             </a>
             <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/ko/" aria-label="한국어">
-              <span class="flag">🇰🇷</span><span class="lang-text">KO</span>
+              <img class="flag-icon" src="../assets/flags/kr.svg" alt="Güney Kore bayrağı" />
+              <span class="lang-text">KO</span>
             </a>
             <a class="lang-item active" href="https://dates1905.github.io/atesoyunarsivi/ja/" aria-label="日本語">
-              <span class="flag">🇯🇵</span><span class="lang-text">JA</span>
+              <img class="flag-icon" src="../assets/flags/jp.svg" alt="Japonya bayrağı" />
+              <span class="lang-text">JA</span>
             </a>
             <a class="lang-item" href="https://dates1905.github.io/atesoyunarsivi/es/" aria-label="Español">
-              <span class="flag">🇪🇸</span><span class="lang-text">ES</span>
+              <img class="flag-icon" src="../assets/flags/es.svg" alt="İspanya bayrağı" />
+              <span class="lang-text">ES</span>
             </a>
           </div>
         </div>
